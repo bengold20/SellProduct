@@ -15,5 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Toast.makeText(this,"bền mặt lờ" , Toast.LENGTH_LONG).show();
+
+        Toast.makeText(this,"ninh đb" , Toast.LENGTH_LONG).show();
     }
 }
