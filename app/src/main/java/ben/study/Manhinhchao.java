@@ -1,17 +1,16 @@
-package ben.study.codeduan1;
+package ben.study;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import ben.study.codeduan1.R;
+
+public class Manhinhchao extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
+        setContentView(R.layout.activity_manhinhchao);
     }
 }

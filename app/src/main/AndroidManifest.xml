@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CodeDuAn1">
-        <activity android:name=".MainActivity">
+        <activity android:name="ben.study.Manhinhchao"></activity>
+        <activity android:name=".Home" />
+        <activity android:name="ben.study.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
