@@ -1,15 +1,13 @@
-package ben.study;
+package ben.study.main_Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import ben.study.codeduan1.Home;
 import ben.study.codeduan1.R;
-import ben.study.codeduan1.kho;
 
 public class MainActivity extends AppCompatActivity {
 
