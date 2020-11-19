@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CodeDuAn1">
         <activity android:name=".kho"></activity>
-        <activity android:name="ben.study.Manhinhchao" >
+        <activity android:name="ben.study.main_Activity.Manhinhchao" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Home" />
-        <activity android:name="ben.study.MainActivity">
+        <activity android:name="ben.study.main_Activity.MainActivity">
         </activity>
     </application>
 

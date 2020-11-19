@@ -7,7 +7,7 @@
     android:background="@drawable/logomaker"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="ben.study.Manhinhchao">
+    tools:context="ben.study.main_Activity.Manhinhchao">
 
     <ProgressBar
         android:id="@+id/progressBar"

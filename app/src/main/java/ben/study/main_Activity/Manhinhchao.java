@@ -1,4 +1,4 @@
-package ben.study;
+package ben.study.main_Activity;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import ben.study.codeduan1.R;
+import ben.study.main_Activity.MainActivity;
 
 public class Manhinhchao extends AppCompatActivity {
 
@@ -23,7 +24,7 @@ public class Manhinhchao extends AppCompatActivity {
             @Override
             public void run() {
                 startActivity(new
-                        Intent(getApplicationContext(),MainActivity.class));
+                        Intent(getApplicationContext(), MainActivity.class));
                 finish();
             }
         }, 2000);
