@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:title="Thêm Thể Loại" android:onClick="themTheLoai"/>
+        <item android:title="Sửa Thế Loại" android:onClick="suaTheLoai"/>
+        <item android:title="Trang Chủ" android:onClick="trangChu"/>
+</menu>
