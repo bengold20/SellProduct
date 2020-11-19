@@ -3,7 +3,7 @@ package ben.study.model;
 public class KhoModel {
     private String maHang;
     private String tenHang;
-    private String maTheLoai;
+    private String theloaihang;
     private int soLuong;
     private String ngayNhap;
     private String ngayXuat;
@@ -11,10 +11,10 @@ public class KhoModel {
     public KhoModel() {
     }
 
-    public KhoModel(String maHang, String tenHang, String maTheLoai, int soLuong, String ngayNhap, String ngayXuat) {
+    public KhoModel(String maHang, String tenHang, String theloaihang, int soLuong, String ngayNhap, String ngayXuat) {
         this.maHang = maHang;
         this.tenHang = tenHang;
-        this.maTheLoai = maTheLoai;
+        this.theloaihang = theloaihang;
         this.soLuong = soLuong;
         this.ngayNhap = ngayNhap;
         this.ngayXuat = ngayXuat;
@@ -36,12 +36,12 @@ public class KhoModel {
         this.tenHang = tenHang;
     }
 
-    public String getMaTheLoai() {
-        return maTheLoai;
+    public String getTheloaihang() {
+        return theloaihang;
     }
 
-    public void setMaTheLoai(String maTheLoai) {
-        this.maTheLoai = maTheLoai;
+    public void setTheloaihang(String maTheLoai) {
+        this.theloaihang = theloaihang;
     }
 
     public int getSoLuong() {
@@ -67,4 +67,6 @@ public class KhoModel {
     public void setNgayXuat(String ngayXuat) {
         this.ngayXuat = ngayXuat;
     }
+
+
 }

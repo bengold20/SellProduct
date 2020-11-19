@@ -2,6 +2,7 @@ package ben.study.codeduan1;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -9,31 +10,56 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+
+import ben.study.model.KhoModel;
 
 
 public class xuatkhoFragment extends Fragment {
-    Button button1;
+    private  Button btnngayxuat,btnxuatkho,btnhuy;
+    private ImageView imgkho;
+    private EditText edtmahang,edttenhang,edtsoluong,edtngayxuat;
+    private Spinner sptheloaihang;
 
 
     public xuatkhoFragment() {
 
     }
 
-    public static xuatkhoFragment newInstance() {
-        xuatkhoFragment fragment = new xuatkhoFragment();
-        return fragment;
-    }
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_xuatkho, container, false);
+        View view =  inflater.inflate(R.layout.fragment_xuatkho, container, false);
+        btnngayxuat = view.findViewById(R.id.btnngayxuat);
+        btnxuatkho = view.findViewById(R.id.btnxuatkho);
+        btnhuy =view.findViewById(R.id.btnhuy);
+        imgkho = view.findViewById(R.id.imgkho);
+        edtmahang = view.findViewById(R.id.edtmahang);
+        edttenhang= view.findViewById(R.id.edttenhang);
+        edtsoluong = view.findViewById(R.id.edtsoluong);
+        edtngayxuat = view.findViewById(R.id.edtngayxuat);
+        sptheloaihang = view.findViewById(R.id.sptheloaihang);
+        xulylaydulieu();
+        return view;
 
+    }
+
+    private void xulylaydulieu() {
+        KhoModel kho = new KhoModel();
+        String mahang = edtmahang.getText().toString();
+        String tenhang = edttenhang.getText().toString();
+//        int soluong = Integer.parseInt(edtsoluong.getText().toString());
+
+//        String theloaihang = sptheloaihang.getSelectedItem().toString();
+
+        kho.setMaHang(mahang);
+        kho.setTenHang(tenhang);
+//        kho.setSoLuong(soluong);
+//        kho.setTheloaihang(theloaihang);
 
     }
 }

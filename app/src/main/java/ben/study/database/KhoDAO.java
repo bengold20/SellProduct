@@ -15,7 +15,7 @@ public class KhoDAO {
         ContentValues contentValues = new ContentValues();
         contentValues.put("maHang",khoModel.getMaHang());
         contentValues.put("tenHang",khoModel.getTenHang());
-        contentValues.put("maTheLoai",khoModel.getMaTheLoai());
+        contentValues.put("theLoaiHang",khoModel.getTheloaihang());
         contentValues.put("soLuong",khoModel.getSoLuong());
         contentValues.put("ngayNhap",khoModel.getNgayNhap());
 
@@ -27,7 +27,7 @@ public class KhoDAO {
         ContentValues contentValues = new ContentValues();
         contentValues.put("maHang",khoModel.getMaHang());
         contentValues.put("tenHang",khoModel.getTenHang());
-        contentValues.put("maTheLoai",khoModel.getMaTheLoai());
+        contentValues.put("theLoaiHang",khoModel.getTheloaihang());
         contentValues.put("soLuong",khoModel.getSoLuong());
         contentValues.put("ngayXuat",khoModel.getNgayXuat());
 
@@ -39,7 +39,7 @@ public class KhoDAO {
         ContentValues contentValues = new ContentValues();
         contentValues.put("maHang",khoModel.getMaHang());
         contentValues.put("tenHang",khoModel.getTenHang());
-        contentValues.put("maTheLoai",khoModel.getMaTheLoai());
+        contentValues.put("theLoaiHang",khoModel.getTheloaihang());
         contentValues.put("soLuong",khoModel.getSoLuong());
         contentValues.put("ngayNhap",khoModel.getNgayNhap());
 
