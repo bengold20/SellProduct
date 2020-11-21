@@ -15,6 +15,7 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        app:titleTextColor="#F8F5F5"
         app:title="Thể Loại Sản Phẩm"/>
 
     <LinearLayout

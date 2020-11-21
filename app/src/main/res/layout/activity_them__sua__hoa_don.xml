@@ -7,6 +7,16 @@
     tools:context="ben.study.hoa_don.Them_Sua_HoaDon"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarThemSuaHoaDon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Thêm Và Sửa Hóa Đơn"
+        app:titleTextColor="#FBFBFB" />
+
 
     <EditText
         android:id="@+id/edtMaHoaDon"

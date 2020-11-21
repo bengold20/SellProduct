@@ -7,22 +7,18 @@
     android:orientation="vertical"
     tools:context=".Home">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:src="@drawable/logo" />
-
-    <TextView
-        android:id="@+id/textView"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Thích Là Mua"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Home"
+        app:titleTextColor="#F8F5F5"/>
 
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

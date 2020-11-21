@@ -7,6 +7,16 @@
     tools:context="ben.study.thong_ke.DanhSachBanChay"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDanhSachBanChay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Danh Sách Bán Chạy"
+        app:titleTextColor="#F3EEEE" />
+
     <TextView
         android:id="@+id/textView16"
         android:layout_width="match_parent"

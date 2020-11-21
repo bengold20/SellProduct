@@ -7,6 +7,16 @@
     tools:context="ben.study.thong_ke.ThongKe"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarThongKe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Thống Kê"
+        app:titleTextColor="#F6F4F4" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

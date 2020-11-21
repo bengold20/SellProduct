@@ -7,6 +7,16 @@
     tools:context="ben.study.hoa_don.HoaDon"
     android:orientation="vertical">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarHoaDon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Hóa Đơn"
+        app:titleTextColor="#F8F5F5"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
