@@ -2,8 +2,6 @@ package ben.study.codeduan1;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -36,11 +34,11 @@ public class xuatkhoFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_xuatkho, container, false);
         btnngayxuat = view.findViewById(R.id.btnngayxuat);
         btnxuatkho = view.findViewById(R.id.btnxuatkho);
-        btnhuy =view.findViewById(R.id.btnhuy);
+        btnhuy =view.findViewById(R.id.btnHuy);
         imgkho = view.findViewById(R.id.imgkho);
-        edtmahang = view.findViewById(R.id.edtmahang);
-        edttenhang= view.findViewById(R.id.edttenhang);
-        edtsoluong = view.findViewById(R.id.edtsoluong);
+        edtmahang = view.findViewById(R.id.edtMahang);
+        edttenhang= view.findViewById(R.id.edtTenHang);
+        edtsoluong = view.findViewById(R.id.edtSoLuong);
         edtngayxuat = view.findViewById(R.id.edtngayxuat);
         sptheloaihang = view.findViewById(R.id.sptheloaihang);
         xulylaydulieu();

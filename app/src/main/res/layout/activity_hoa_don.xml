@@ -4,18 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ben.study.theLoai.TheLoaiScreen"
+    tools:context="ben.study.hoa_don.HoaDon"
     android:orientation="vertical">
-
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarTheLoai"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:title="Thể Loại Sản Phẩm"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,22 +13,19 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/edtFindBill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="6"
-            android:hint="mã thể loại"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteX="123dp"
-            tools:layout_editor_absoluteY="40dp" />
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnFindBill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="tìm kiếm" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -47,7 +34,9 @@
         android:orientation="vertical">
 
         <ListView
+            android:id="@+id/lvBill"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
+
 </LinearLayout>

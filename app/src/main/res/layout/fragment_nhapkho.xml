@@ -16,13 +16,13 @@
             android:src="@drawable/nhapkho" />
 
         <EditText
-            android:id="@+id/edtmahang"
+            android:id="@+id/edtMahang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mã mặt hàng "
             android:inputType="textPersonName" />
         <EditText
-            android:id="@+id/edttheloaihang"
+            android:id="@+id/edtTheLoaiHang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tên thể loại hàng Nhập"
@@ -30,7 +30,7 @@
 
 
         <EditText
-            android:id="@+id/edttenhang"
+            android:id="@+id/edtTenHang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -38,7 +38,15 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/edtsoluong"
+            android:id="@+id/edtGiaHang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="giá mặt hàng"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/edtSoLuong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -51,7 +59,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/edtngaynhap"
+                android:id="@+id/edtNgayNhap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -59,7 +67,7 @@
                 android:inputType="textPersonName" />
 
             <Button
-                android:id="@+id/btnngaynhap"
+                android:id="@+id/btnNgayNhap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chọn ngày"
@@ -74,14 +82,14 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnnhapkho"
+                android:id="@+id/btnNhapKho"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nhập Kho"
                  />
 
             <Button
-                android:id="@+id/btnhuy"
+                android:id="@+id/btnHuy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hủy"

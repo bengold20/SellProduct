@@ -17,27 +17,26 @@ public class TheLoaiScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_loai_screen);
 
-        setSupportActionBar(toolbar_theLoai);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         addControls();
         addEvents();
     }
 
     private void addEvents() {
+        setSupportActionBar(toolbar_theLoai);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        toolbar_theLoai.setNavigationIcon(R.drawable.ic_back);
 
     }
 
     private void addControls() {
+        toolbar_theLoai = findViewById(R.id.toolbarTheLoai);
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.item_theloai,menu);
-        return true;
-    }
 
     public void themHoaDon(Menu item){
         Intent intent = new Intent(TheLoaiScreen.this,ThemSua_TheLoai.class);

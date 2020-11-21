@@ -16,8 +16,8 @@ public class Manhinhchao extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_manhinhchao);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.hide();
         setContentView(R.layout.activity_manhinhchao);
         //chuyển màn
         new Handler().postDelayed(new Runnable() {

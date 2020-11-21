@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CodeDuAn1">
-        <activity android:name="ben.study.theLoai.ThemSua_TheLoai"></activity>
+        <activity android:name="ben.study.danh_sach_san_pham.DanhSachSanPham"></activity>
+        <activity android:name="ben.study.thong_ke.ThongKe" />
+        <activity android:name="ben.study.thong_ke.DanhSachBanChay" />
+        <activity android:name="ben.study.hoa_don.Them_Sua_HoaDon" />
+        <activity android:name="ben.study.hoa_don.HoaDon" />
+        <activity android:name="ben.study.theLoai.ThemSua_TheLoai" />
         <activity android:name="ben.study.theLoai.TheLoaiScreen" />
         <activity android:name=".kho" />
         <activity android:name="ben.study.main_Activity.Manhinhchao">
