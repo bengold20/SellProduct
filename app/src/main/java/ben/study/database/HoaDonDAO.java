@@ -12,9 +12,12 @@ import ben.study.model.HoaDon;
 
 public class HoaDonDAO {
    private DatabaseDuAn1 databaseDuAn1;
-   public HoaDonDAO(Context databaseDuAn1){
+   private  Context context;
+   public HoaDonDAO(DatabaseDuAn1 databaseDuAn1){
        this.databaseDuAn1 = databaseDuAn1;
+       this.context = context;
    }
+
     public boolean themhoadon( HoaDon hoaDon){
         SQLiteDatabase sqLiteDatabase = databaseDuAn1.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

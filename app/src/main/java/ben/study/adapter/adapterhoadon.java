@@ -15,6 +15,7 @@ import androidx.appcompat.app.AlertDialog;
 import java.util.ArrayList;
 
 import ben.study.codeduan1.R;
+import ben.study.database.DatabaseDuAn1;
 import ben.study.database.HoaDonDAO;
 import ben.study.model.HoaDon;
 
@@ -62,7 +63,8 @@ public class adapterhoadon extends BaseAdapter {
                 builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        HoaDonDAO hoadonDAO = new HoaDonDAO(viewGroup.getContext());
+                        DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(view.getContext());
+                        HoaDonDAO hoadonDAO = new HoaDonDAO(databaseDuAn1);
                         String mahoadon = hoadons.get(i).getMaHoaDon();
                         boolean ketQua = hoadonDAO.xoahoadon(mahoadon);
                         if (ketQua) {
