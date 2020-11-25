@@ -26,10 +26,9 @@
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
             android:text="Doanh Thu Theo Ngày:  "
-            />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtDoanhThuNgay"
@@ -49,10 +48,10 @@
             android:id="@+id/textView1g7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="right"
             android:text="Doanh Thu Theo Tháng: "
-            />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtDoanhThuThang"
@@ -73,9 +72,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="right"
             android:text="Doanh Thu Theo Năm: "
-            />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtDoanhThuNam"
@@ -85,5 +84,19 @@
             android:hint="Doanh Thu Theo Năm" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Bảng danh sách sản phẩm bán chạy"
+        android:textSize="18sp"
+        android:textStyle="normal|bold" />
+
+    <ListView
+        android:id="@+id/lvDanhsachsanphambanchay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

@@ -34,7 +34,7 @@
                 android:id="@+id/imageView6"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:srcCompat="@drawable/danhsach"
+                android:src="@drawable/danhsachsanpham"
                 android:onClick="DanhSachSanPham"/>
 
             <TextView
@@ -59,7 +59,7 @@
                 android:id="@+id/imageView2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/nhakho"
+                android:src="@drawable/kho1"
                 android:onClick="kho"/>
 
             <TextView
@@ -91,7 +91,7 @@
                 android:id="@+id/imageView4"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/theloaisach"
+                android:src="@drawable/theloai"
                 android:onClick="the_loai"/>
 
             <TextView
@@ -114,7 +114,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="200dp"
                 android:layout_height="100dp"
-                android:src="@drawable/hoadon1"
+                android:src="@drawable/hoadon2"
                 android:onClick="HoaDon"/>
 
             <TextView
@@ -135,28 +135,11 @@
         android:gravity="center">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="1"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/thongke1"
-                android:onClick="SanPhamBanChay"/>
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sản Phẩm Bán Chạy"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
+            android:gravity="center"
+            android:orientation="vertical" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -169,7 +152,7 @@
                 android:id="@+id/imageView5"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/thongke2"
+                android:src="@drawable/thongke"
                 android:onClick="ThongKe"/>
 
             <TextView
