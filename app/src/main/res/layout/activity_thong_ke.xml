@@ -86,11 +86,17 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#2C0E0E" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Bảng danh sách sản phẩm bán chạy"
+        android:text="Bảng Danh Sách Sản Phẩm Bán Chạy"
         android:textSize="18sp"
         android:textStyle="normal|bold" />
 

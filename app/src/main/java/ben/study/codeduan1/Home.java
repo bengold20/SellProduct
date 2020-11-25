@@ -9,7 +9,6 @@ import android.view.View;
 import ben.study.danh_sach_san_pham.DanhSachSanPham;
 import ben.study.hoa_don.HoaDon;
 import ben.study.theLoai.TheLoaiScreen;
-import ben.study.thong_ke.DanhSachBanChay;
 import ben.study.thong_ke.ThongKe;
 
 public class Home extends AppCompatActivity {
@@ -38,11 +37,6 @@ public class Home extends AppCompatActivity {
 
     public void DanhSachSanPham(View view) {
         Intent intent = new Intent(Home.this, DanhSachSanPham.class);
-        startActivity(intent);
-    }
-
-    public void SanPhamBanChay(View view) {
-        Intent intent = new Intent(Home.this, DanhSachBanChay.class);
         startActivity(intent);
     }
 
