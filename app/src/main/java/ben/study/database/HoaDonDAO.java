@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import ben.study.model.HoaDon;
+import ben.study.model.HoaDonModel;
 
 public class HoaDonDAO {
    private DatabaseDuAn1 databaseDuAn1;
@@ -18,7 +18,7 @@ public class HoaDonDAO {
        this.context = context;
    }
 
-    public boolean themhoadon( HoaDon hoaDon){
+    public boolean themhoadon( HoaDonModel hoaDon){
         SQLiteDatabase sqLiteDatabase = databaseDuAn1.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("maHoaDon",hoaDon.getMaHoaDon());
@@ -38,8 +38,8 @@ public class HoaDonDAO {
         if (kq > 0) return true;
         else return false;
     }
-    public List<HoaDon> getallhoadon(){
-        List<HoaDon> hoadonList  = new ArrayList<>();
+    public List<HoaDonModel> getallhoadon(){
+        List<HoaDonModel> hoadonList  = new ArrayList<>();
         String truyvan = "SELECT * FROM hoa_don";
         Cursor cursor = databaseDuAn1.getWritableDatabase().rawQuery(truyvan,null);
         if (cursor.getCount()>0){
@@ -52,7 +52,7 @@ public class HoaDonDAO {
                 double giaHang = cursor.getDouble(cursor.getColumnIndex("giaHang"));
                 double tongThanhToan = cursor.getDouble(cursor.getColumnIndex("tongThanhToan"));
 
-                HoaDon hoaDon = new HoaDon();
+                HoaDonModel hoaDon = new HoaDonModel();
                 hoaDon.setMaHoaDon(maHoaDon);
                 hoaDon.setTenMatHang(tenHang);
                 hoaDon.setTheLoaiMatHang(theLoaiHang);
@@ -68,7 +68,7 @@ public class HoaDonDAO {
         return hoadonList;
     }
 
-    public int suahoadon(HoaDon hoaDon){
+    public int suahoadon(HoaDonModel hoaDon){
         SQLiteDatabase sqLiteDatabase = databaseDuAn1.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("maHoaDon",hoaDon.getMaHoaDon());

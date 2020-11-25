@@ -1,6 +1,6 @@
 package ben.study.model;
 
-public class HoaDon {
+public class HoaDonModel {
     private String maHoaDon;
     private String tenMatHang;
     private String theLoaiMatHang;
@@ -9,11 +9,11 @@ public class HoaDon {
     private String ngayMua;
     private double tongThanhToan;
 
-    public HoaDon() {
+    public HoaDonModel() {
     }
 
-    public HoaDon(String maHoaDon, String tenMatHang, String theLoaiMatHang, int soLuongMatHang, double giaBan,
-                  String ngayMua, double tongThanhToan) {
+    public HoaDonModel(String maHoaDon, String tenMatHang, String theLoaiMatHang, int soLuongMatHang, double giaBan,
+                       String ngayMua, double tongThanhToan) {
         this.maHoaDon = maHoaDon;
         this.tenMatHang = tenMatHang;
         this.theLoaiMatHang = theLoaiMatHang;

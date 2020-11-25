@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".kho">
+    tools:context=".Kho">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarKho"

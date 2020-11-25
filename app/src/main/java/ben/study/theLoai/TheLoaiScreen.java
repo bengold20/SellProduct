@@ -8,10 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import ben.study.codeduan1.Home;
 import ben.study.codeduan1.R;
+import ben.study.hoa_don.HoaDon;
 
 public class TheLoaiScreen extends AppCompatActivity {
     Toolbar toolbar_theLoai;
@@ -34,6 +36,14 @@ public class TheLoaiScreen extends AppCompatActivity {
 
         toolbar_theLoai.setNavigationIcon(R.drawable.ic_back);
 
+        toolbar_theLoai.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(TheLoaiScreen.this, Home.class);
+                startActivity(intent2);
+            }
+        });
+
     }
 
     private void addControls() {
@@ -50,7 +60,7 @@ public class TheLoaiScreen extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_search:
+            case R.id.item_search_theloai:
                 Toast.makeText(this,"tìm kiếm đi",Toast.LENGTH_LONG).show();
             break;
             case R.id.item_ThemTheLoai:

@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Bảng Danh Sách Sản Phẩm Bán Chạy"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textStyle="normal|bold" />
 
     <ListView

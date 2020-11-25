@@ -12,7 +12,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import ben.study.adapter.pageradapterkho;
 
-public class kho extends AppCompatActivity {
+public class Kho extends AppCompatActivity {
    ViewPager viewPager;
 
 

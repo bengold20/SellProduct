@@ -20,7 +20,7 @@ public class Home extends AppCompatActivity {
     }
 
     public void kho(View view) {
-        Intent intent = new Intent(Home.this,kho.class);
+        Intent intent = new Intent(Home.this, Kho.class);
         startActivity(intent);
     }
 

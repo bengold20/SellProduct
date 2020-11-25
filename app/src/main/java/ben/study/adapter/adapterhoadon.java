@@ -17,12 +17,12 @@ import java.util.ArrayList;
 import ben.study.codeduan1.R;
 import ben.study.database.DatabaseDuAn1;
 import ben.study.database.HoaDonDAO;
-import ben.study.model.HoaDon;
+import ben.study.model.HoaDonModel;
 
 public class adapterhoadon extends BaseAdapter {
-    private ArrayList<HoaDon> hoadons;
+    private ArrayList<HoaDonModel> hoadons;
     private Context context;
-    public adapterhoadon(ArrayList<HoaDon> hoadons,Context context){
+    public adapterhoadon(ArrayList<HoaDonModel> hoadons, Context context){
         this.hoadons = hoadons;
         this.context = context;
     }

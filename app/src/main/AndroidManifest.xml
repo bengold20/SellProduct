@@ -16,7 +16,7 @@
         <activity android:name="ben.study.hoa_don.HoaDon" />
         <activity android:name="ben.study.theLoai.ThemSua_TheLoai" />
         <activity android:name="ben.study.theLoai.TheLoaiScreen" />
-        <activity android:name=".kho" />
+        <activity android:name=".Kho" />
         <activity android:name="ben.study.main_Activity.Manhinhchao">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
