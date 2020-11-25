@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-        <item android:title="Thêm Thể Loại" android:onClick="themTheLoai"/>
-        <item android:title="Sửa Thế Loại" android:onClick="suaTheLoai"/>
-        <item android:title="Trang Chủ" android:onClick="trangChu"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/item_search" android:title="timkiem" android:icon="@drawable/ic_search" app:showAsAction="always" />
+    <item android:id="@+id/item_ThemTheLoai" android:title="Thêm Thể Loại" />
+    <item android:id="@+id/item_SuaTheLoai" android:title="Sửa Thế Loại" />
+    <item android:id="@+id/item_TrangChuTheLoai" android:title="Trang Chủ" />
 </menu>
