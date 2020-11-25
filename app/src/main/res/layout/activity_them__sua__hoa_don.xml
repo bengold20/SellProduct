@@ -76,7 +76,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editTextTextPersonName7"
+            android:id="@+id/edtNgayMua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -85,10 +85,11 @@
             android:text="ngày mua" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnNgayMua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Date" />
+            android:text="Date"
+            android:onClick="NgayMua"/>
     </LinearLayout>
 
     <LinearLayout

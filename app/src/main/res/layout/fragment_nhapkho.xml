@@ -16,13 +16,13 @@
             android:src="@drawable/nhapkho" />
 
         <EditText
-            android:id="@+id/edtMahang"
+            android:id="@+id/edtMaHangNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mã mặt hàng "
             android:inputType="textPersonName" />
         <EditText
-            android:id="@+id/edtTheLoaiHang"
+            android:id="@+id/edtTheLoaiHangNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tên thể loại hàng Nhập"
@@ -30,7 +30,7 @@
 
 
         <EditText
-            android:id="@+id/edtTenHang"
+            android:id="@+id/edtTenHangNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -38,7 +38,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/edtGiaHang"
+            android:id="@+id/edtGiaHangNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -46,7 +46,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/edtSoLuong"
+            android:id="@+id/edtSoLuongNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

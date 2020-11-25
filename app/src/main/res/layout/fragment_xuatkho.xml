@@ -20,7 +20,7 @@
             android:src="@drawable/xuatkho" />
 
         <EditText
-            android:id="@+id/edtMahang"
+            android:id="@+id/edtMaHangXuat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mã mặt hàng "
@@ -35,12 +35,12 @@
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/sptheloaihang"
+            android:id="@+id/spTheLoaiHangXuat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/edtTenHang"
+            android:id="@+id/edtTenHangXuat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -48,7 +48,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/edtSoLuong"
+            android:id="@+id/edtSoLuongXuat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
