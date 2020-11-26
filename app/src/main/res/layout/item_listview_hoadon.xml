@@ -26,7 +26,7 @@
                 android:id="@+id/txtTenHang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:text="tên mặt hàng"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -34,19 +34,19 @@
                 android:id="@+id/txtTheLoaiHang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="tên thể loại" />
 
             <TextView
                 android:id="@+id/txtTongThanhToan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="tổng thanh toán" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/imgXoa"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@android:drawable/btn_dialog" />
+            android:layout_height="80dp"
+            android:src="@drawable/btnDelete" />
     </LinearLayout>
 </LinearLayout>

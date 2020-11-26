@@ -43,7 +43,7 @@ public class adapterhoadon extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view = LayoutInflater.from(context).inflate(R.layout.itemhoadon,viewGroup,false);
+        view = LayoutInflater.from(context).inflate(R.layout.item_listview_hoadon,viewGroup,false);
 
         ImageView imgHoaDon = view.findViewById(R.id.imgHoaDon);
         ImageView imgXoa = view.findViewById(R.id.imgXoa);
