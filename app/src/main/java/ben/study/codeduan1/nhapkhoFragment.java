@@ -2,11 +2,17 @@ package ben.study.codeduan1;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,6 +23,8 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 
+import ben.study.danh_sach_san_pham.DanhSachSanPham;
+import ben.study.danh_sach_san_pham.DanhSachSanPhamTrongKho;
 import ben.study.model.KhoModel;
 
 
@@ -72,5 +80,32 @@ public class nhapkhoFragment extends Fragment {
         kho.setTenHang(tenHang);
 //        kho.setSoLuong(soLuong);
 
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.item_nhapkho,menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.item_danhSachHangNhapKho:
+                Intent intent = new Intent(getActivity(), DanhSachSanPhamTrongKho.class);
+                startActivity(intent);
+                break;
+            case R.id.item_trangChuNhapKho:
+                Intent intent1 = new Intent(getActivity(), Home.class);
+                startActivity(intent1);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

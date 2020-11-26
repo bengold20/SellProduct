@@ -39,7 +39,7 @@ public class DanhSachSanPham extends AppCompatActivity {
         toolbarDanhSachSanPham.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(DanhSachSanPham.this, Home.class);
+                Intent intent2 = new Intent(DanhSachSanPham.this, Kho.class);
                 startActivity(intent2);
             }
         });

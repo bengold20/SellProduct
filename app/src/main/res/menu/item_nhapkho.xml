@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/item_danhSachHangNhapKho" android:title="Danh Sách Sản Phẩm Nhập Kho" />
+    <item android:id="@+id/item_trangChuNhapKho" android:title="Trang Chủ" />
+
+</menu>

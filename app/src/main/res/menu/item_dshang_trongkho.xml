@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/item_search_dsSanPhamTrongKho" android:title="timkiem" android:icon="@drawable/ic_search" app:showAsAction="always" />
+    <item android:id="@+id/item_NhapSanPham" android:title="Thêm Sản Phẩm Trong Kho" />
+    <item android:id="@+id/item_SuaNhapSanPham" android:title="Sửa Sản Phẩm Trong Kho" />
+    <item android:id="@+id/item_TrangChuNhapSanPham" android:title="Trang Chủ" />
+
+</menu>

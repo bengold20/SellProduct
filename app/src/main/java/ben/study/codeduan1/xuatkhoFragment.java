@@ -1,11 +1,17 @@
 package ben.study.codeduan1;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,17 +19,20 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
+import ben.study.danh_sach_san_pham.DanhSachSanPham;
 import ben.study.model.KhoModel;
 
 
-public class xuatkhoFragment extends Fragment {
+public class xuatkhoFragment extends Fragment{
     private  Button btnNgayXuat,btnXuatKho,btnHuy;
     private ImageView imgkho;
     private EditText edtMaHangXuat,edtTenHangXuat,edtSoLuongXuat,edtNgayXuat;
     private Spinner spTheLoaiHangXuat;
+
 
 
     public xuatkhoFragment() {
@@ -78,4 +87,34 @@ public class xuatkhoFragment extends Fragment {
 //        kho.setTheloaihang(theloaihang);
 
     }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.item_xuatkho,menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.item_danhSachHangXuatKho:
+                Intent intent = new Intent(getActivity(), DanhSachSanPham.class);
+                startActivity(intent);
+                break;
+            case R.id.item_trangChuXuatKho:
+                Intent intent1 = new Intent(getActivity(), Home.class);
+                startActivity(intent1);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
 }
