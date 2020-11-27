@@ -78,5 +78,16 @@ public class HoaDonModel {
         this.tongThanhToan = tongThanhToan;
     }
 
-
+    @Override
+    public String toString() {
+        return "HoaDonModel{" +
+                "maHoaDon='" + maHoaDon + '\'' +
+                ", tenMatHang='" + tenMatHang + '\'' +
+                ", theLoaiMatHang='" + theLoaiMatHang + '\'' +
+                ", soLuongMatHang=" + soLuongMatHang +
+                ", giaBan=" + giaBan +
+                ", ngayMua='" + ngayMua + '\'' +
+                ", tongThanhToan=" + tongThanhToan +
+                '}';
+    }
 }

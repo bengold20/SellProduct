@@ -33,7 +33,6 @@ public class Them_Sua_HoaDon extends AppCompatActivity {
 
     Spinner spinnerTheLoai;
     List<TheLoaiModel> listTheLoai = new ArrayList<>();
-    ArrayAdapter<TheLoaiModel> adapterSpTheLoai ;
 
     String theLoaiHang = "";
 
@@ -71,8 +70,8 @@ public class Them_Sua_HoaDon extends AppCompatActivity {
 
         spinnerTheLoai = findViewById(R.id.spinnerTheLoai);
         listTheLoai = theLoaiDAO.getAllTheLoai();
-        adapterSpTheLoai = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,listTheLoai);
-        adapterSpTheLoai.setDropDownViewResource(android.R.layout.activity_list_item);
+        ArrayAdapter<TheLoaiModel>  adapterSpTheLoai = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,listTheLoai);
+        adapterSpTheLoai.setDropDownViewResource(android.R.layout.simple_list_item_1);
         spinnerTheLoai.setAdapter(adapterSpTheLoai);
         adapterSpTheLoai.notifyDataSetChanged();
 

@@ -23,16 +23,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="mã hóa đơn" />
+        android:hint="mã hóa đơn"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edtTenMatHangHoaDon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="tên mặt hàng" />
+        android:hint="tên mặt hàng"
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView15"
@@ -51,8 +51,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="giá tiền"
-        android:inputType="textPersonName"
-        android:text="giá tiền" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/edtSoLuongHangHoaDon"
@@ -60,7 +59,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="số lượng" />
+        android:hint="số lượng" />
 
     <EditText
         android:id="@+id/edtTongTienHoaDon"
@@ -68,7 +67,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="tổng tiền" />
+        android:hint="tổng tiền"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -82,7 +81,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="ngày mua" />
+            android:hint="ngày mua" />
 
         <Button
             android:id="@+id/btnNgayMuaHoaDon"

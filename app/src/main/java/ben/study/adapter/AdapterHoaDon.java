@@ -47,13 +47,13 @@ public class AdapterHoaDon extends BaseAdapter {
 
         ImageView imgHoaDon = view.findViewById(R.id.imgHoaDon);
         ImageView imgXoa = view.findViewById(R.id.imgXoaTheLoai);
-        TextView txtTenHang = view.findViewById(R.id.txtTenHang);
-        TextView txtTheLoai = view.findViewById(R.id.txtTheLoaiHang);
-        TextView txtTongThanhToan = view.findViewById(R.id.txtTongThanhToan);
+        TextView txtListViewTenHang = view.findViewById(R.id.txtListViewTenHang);
+        TextView txtListViewTheLoaiHang = view.findViewById(R.id.txtListViewTheLoaiHang);
+        TextView txtListViewTongThanhToan = view.findViewById(R.id.txtListViewTongThanhToan);
 
-        txtTenHang.setText(hoadons.get(i).getTenMatHang());
-        txtTheLoai.setText(hoadons.get(i).getTheLoaiMatHang());
-        txtTongThanhToan.setText((int) hoadons.get(i).getTongThanhToan());
+        txtListViewTenHang.setText(hoadons.get(i).getTenMatHang());
+        txtListViewTheLoaiHang.setText(hoadons.get(i).getTheLoaiMatHang());
+        txtListViewTongThanhToan.setText(String.valueOf( hoadons.get(i).getTongThanhToan()));
         imgXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +62,7 @@ public class AdapterHoaDon extends BaseAdapter {
                 builder.setTitle("Bạn có chắc muốn xóa hóa đơn này không , lưu ý khi xóa hóa đơn sẽ mất vĩnh viễn.!");
                 builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    public void onClick(DialogInterface dialogInterface, int i1) {
                         DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(view.getContext());
                         HoaDonDAO hoadonDAO = new HoaDonDAO(databaseDuAn1);
                         String mahoadon = hoadons.get(i).getMaHoaDon();

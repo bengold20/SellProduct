@@ -37,4 +37,13 @@ public class TheLoaiModel {
     public void setViTri(int viTri) {
         this.viTri = viTri;
     }
+
+    @Override
+    public String toString() {
+        return "TheLoaiModel{" +
+                "maTheLoai='" + maTheLoai + '\'' +
+                ", tenTheLoai='" + tenTheLoai + '\'' +
+                ", viTri=" + viTri +
+                '}';
+    }
 }
