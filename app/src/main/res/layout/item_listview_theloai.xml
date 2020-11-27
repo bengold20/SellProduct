@@ -43,7 +43,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imgXoa"
+            android:id="@+id/imgXoaTheLoai"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:src="@drawable/delete" />

@@ -17,23 +17,27 @@ import java.util.ArrayList;
 import ben.study.codeduan1.R;
 import ben.study.database.DatabaseDuAn1;
 import ben.study.database.HoaDonDAO;
-import ben.study.model.HoaDonModel;
+import ben.study.database.TheLoaiDAO;
+import ben.study.model.TheLoaiModel;
 
-public class adapterhoadon extends BaseAdapter {
-    private ArrayList<HoaDonModel> hoadons;
+public class AdapterTheLoai extends BaseAdapter {
+    private ArrayList<TheLoaiModel> theLoaiModels;
     private Context context;
-    public adapterhoadon(ArrayList<HoaDonModel> hoadons, Context context){
-        this.hoadons = hoadons;
+
+    public  AdapterTheLoai( ArrayList<TheLoaiModel> theLoaiModels ,Context context){
+        this.theLoaiModels = theLoaiModels;
         this.context = context;
     }
+
+
     @Override
     public int getCount() {
-        return hoadons.size();
+        return theLoaiModels.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return hoadons.get(i);
+        return theLoaiModels.get(i);
     }
 
     @Override
@@ -43,34 +47,33 @@ public class adapterhoadon extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view = LayoutInflater.from(context).inflate(R.layout.item_listview_hoadon,viewGroup,false);
+        view = LayoutInflater.from(context).inflate(R.layout.item_listview_theloai,viewGroup,false);
+        ImageView imgTheLoai = view.findViewById(R.id.imgTheLoai);
+        ImageView imgXoaTheLoai = view.findViewById(R.id.imgXoaTheLoai);
+        TextView txtListviewTenTheLoai = view.findViewById(R.id.txtListviewTenTheLoai);
+        TextView txtListviewMaTheLoai = view.findViewById(R.id.txtListviewMaTheLoai);
+        TextView txtListviewViTri = view.findViewById(R.id.txtListviewViTri);
 
-        ImageView imgHoaDon = view.findViewById(R.id.imgHoaDon);
-        ImageView imgXoa = view.findViewById(R.id.imgXoa);
-        TextView txtTenHang = view.findViewById(R.id.txtTenHang);
-        TextView txtTheLoai = view.findViewById(R.id.txtTheLoaiHang);
-        TextView txtTongThanhToan = view.findViewById(R.id.txtTongThanhToan);
-
-        txtTenHang.setText(hoadons.get(i).getTenMatHang());
-        txtTheLoai.setText(hoadons.get(i).getTheLoaiMatHang());
-        txtTongThanhToan.setText((int) hoadons.get(i).getTongThanhToan());
-        imgXoa.setOnClickListener(new View.OnClickListener() {
+        txtListviewTenTheLoai.setText(theLoaiModels.get(i).getTenTheLoai());
+        txtListviewMaTheLoai.setText(theLoaiModels.get(i).getMaTheLoai());
+        txtListviewViTri.setText(theLoaiModels.get(i).getViTri());
+        imgXoaTheLoai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage("Xóa Hóa Đơn");
-                builder.setTitle("Bạn có chắc muốn xóa hóa đơn này không , lưu ý khi xóa hóa đơn sẽ mất vĩnh viễn.!");
+                builder.setMessage("Xóa Thể Loại Hàng");
+                builder.setTitle("Bạn có chắc muốn xóa thể loại hàng này không , lưu ý khi xóa thể loại hàng này sẽ mất vĩnh viễn.!");
                 builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(view.getContext());
-                        HoaDonDAO hoadonDAO = new HoaDonDAO(databaseDuAn1);
-                        String mahoadon = hoadons.get(i).getMaHoaDon();
-                        boolean ketQua = hoadonDAO.xoahoadon(mahoadon);
+                        TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
+                        String maTheLoai = theLoaiModels.get(i).getMaTheLoai();
+                        boolean ketQua = theLoaiDAO.xoaTheLoai(maTheLoai);
                         if (ketQua) {
                             Toast.makeText(viewGroup.getContext(), "Xoa Thanh Cong!!!",
                                     Toast.LENGTH_SHORT).show();
-                            hoadons.remove(i);
+                            theLoaiModels.remove(i);
                             notifyDataSetChanged();
                         } else {
                             Toast.makeText(viewGroup.getContext(), "Xoa KHONG Thanh Cong!!!",
@@ -87,8 +90,6 @@ public class adapterhoadon extends BaseAdapter {
                 builder.show();
             }
         });
-
-
-        return null;
+        return view;
     }
 }

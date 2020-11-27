@@ -1,7 +1,6 @@
 package ben.study.codeduan1;
 
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -19,20 +18,25 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TimePicker;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
 import ben.study.danh_sach_san_pham.DanhSachSanPham;
-import ben.study.danh_sach_san_pham.DanhSachSanPhamTrongKho;
 import ben.study.model.KhoModel;
 
 
-public class nhapkhoFragment extends Fragment {
-    private Button btnngaynhap,btnnhapkho,btnhuy;
+public class XuatKhoFragment extends Fragment{
+    private  Button btnNgayXuat,btnXuatKho,btnHuy;
     private ImageView imgkho;
-    private EditText edtMaHangNhap,edtTheloaihangNhap,edtTenHangNhap,edtSoLuongNhap,edtNgayNhap;
-    public nhapkhoFragment() {
+    private EditText edtMaHangXuat,edtTenHangXuat,edtSoLuongXuat,edtNgayXuat;
+    private Spinner spTheLoaiHangXuat;
+
+
+
+    public XuatKhoFragment() {
+
     }
 
 
@@ -40,45 +44,47 @@ public class nhapkhoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_nhapkho, container, false);
-        btnngaynhap = view.findViewById(R.id.btnNgayNhap);
-        btnnhapkho = view.findViewById(R.id.btnNhapKho);
-        btnhuy = view.findViewById(R.id.btnHuy);
+        View view =  inflater.inflate(R.layout.fragment_xuatkho, container, false);
+        btnNgayXuat = view.findViewById(R.id.btnngayxuat);
+        btnXuatKho = view.findViewById(R.id.btnxuatkho);
+        btnHuy =view.findViewById(R.id.btnHuy);
         imgkho = view.findViewById(R.id.imgkho);
-        edtMaHangNhap = view.findViewById(R.id.edtMaHangNhap);
-        edtTheloaihangNhap = view.findViewById(R.id.edtTheLoaiHangNhap);
-        edtTenHangNhap = view.findViewById(R.id.edtTenHangNhap);
-        edtSoLuongNhap = view.findViewById(R.id.edtSoLuongNhap);
-        edtNgayNhap = view.findViewById(R.id.edtNgayNhap);
-        btnngaynhap.setOnClickListener(new View.OnClickListener() {
+        edtMaHangXuat = view.findViewById(R.id.edtMaHangXuat);
+        edtTenHangXuat= view.findViewById(R.id.edtTenHangXuat);
+        edtSoLuongXuat = view.findViewById(R.id.edtSoLuongXuat);
+        edtNgayXuat = view.findViewById(R.id.edtngayxuat);
+        spTheLoaiHangXuat = view.findViewById(R.id.spTheLoaiHangXuat);
+        btnNgayXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar ngaynhap = Calendar.getInstance();
+                Calendar ngayxuat = Calendar.getInstance();
                 DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
                         String date =i2 + "/" + (i1 +1) + "/" +i ;
-                        edtNgayNhap.setText(date);
+                        edtNgayXuat.setText(date);
                     }
-                },ngaynhap.get(ngaynhap.YEAR),ngaynhap.get(ngaynhap.MONTH),ngaynhap.get(Calendar.DAY_OF_MONTH));
+                },ngayxuat.get(ngayxuat.YEAR),ngayxuat.get(ngayxuat.MONTH),ngayxuat.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
             }
         });
         xulylaydulieu();
         return view;
+
     }
 
     private void xulylaydulieu() {
         KhoModel kho = new KhoModel();
-        String maHang = edtMaHangNhap.getText().toString();
-        String theLoaiHang = edtTheloaihangNhap.getText().toString();
-        String tenHang = edtTenHangNhap.getText().toString();
-//        int soLuong = Integer.parseInt(edtSoLuongNhap.getText().toString());
+        String mahang = edtMaHangXuat.getText().toString();
+        String tenhang = edtTenHangXuat.getText().toString();
+//        int soluong = Integer.parseInt(edtsoluong.getText().toString());
 
-        kho.setMaHang(maHang);
-        kho.setTheloaihang(theLoaiHang);
-        kho.setTenHang(tenHang);
-//        kho.setSoLuong(soLuong);
+//        String theloaihang = sptheloaihang.getSelectedItem().toString();
+
+        kho.setMaHang(mahang);
+        kho.setTenHang(tenhang);
+//        kho.setSoLuong(soluong);
+//        kho.setTheloaihang(theloaihang);
 
     }
 
@@ -90,22 +96,25 @@ public class nhapkhoFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.item_nhapkho,menu);
+        inflater.inflate(R.menu.item_xuatkho,menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_danhSachHangNhapKho:
-                Intent intent = new Intent(getActivity(), DanhSachSanPhamTrongKho.class);
+            case R.id.item_danhSachHangXuatKho:
+                Intent intent = new Intent(getActivity(), DanhSachSanPham.class);
                 startActivity(intent);
                 break;
-            case R.id.item_trangChuNhapKho:
+            case R.id.item_trangChuXuatKho:
                 Intent intent1 = new Intent(getActivity(), Home.class);
                 startActivity(intent1);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

@@ -9,16 +9,13 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import ben.study.codeduan1.nhapkhoFragment;
-import ben.study.codeduan1.xuatkhoFragment;
-
-public class pageradapterkho extends FragmentPagerAdapter {
+public class PagerAdapterKho extends FragmentPagerAdapter {
     private final List<Fragment> fragmentList = new ArrayList<>();
     private final List<String> titlefm = new ArrayList<>();
 
 
 
-    public pageradapterkho(@NonNull FragmentManager fm) {
+    public PagerAdapterKho(@NonNull FragmentManager fm) {
         super(fm);
     }
 

@@ -33,12 +33,14 @@ public class TheLoaiDAO {
         contentValues.put("tenTheLoai",theLoaiModel.getTenTheLoai());
         contentValues.put("viTri",theLoaiModel.getViTri());
 
-        return sqLiteDatabase.update("theLoai",contentValues,"maTheLoai=?",new String[]{theLoaiModel.getMaTheLoai()});
+        return sqLiteDatabase.update("the_loai",contentValues,"maTheLoai=?",new String[]{theLoaiModel.getMaTheLoai()});
     };
 
-    public void xoaTheLoai(String id){
+    public boolean xoaTheLoai(String maTheLoai){
         SQLiteDatabase sqLiteDatabase = databaseDuAn1.getWritableDatabase();
-        sqLiteDatabase.delete("theLoai","maTheLoai=?",new String[]{id});
+       long kq =  sqLiteDatabase.delete("the_loai","maTheLoai=?",new String[]{maTheLoai});
+        if (kq > 0) return true;
+        else return false;
     }
 
     public List<TheLoaiModel> getAllTheLoai(){
