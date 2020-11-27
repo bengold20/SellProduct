@@ -28,7 +28,7 @@ public class TheLoaiDAO {
         else return false;
     };
 
-    public long suaTheloai(TheLoaiModel theLoaiModel){
+    public int suaTheloai(TheLoaiModel theLoaiModel){
         SQLiteDatabase sqLiteDatabase = databaseDuAn1.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("maTheLoai",theLoaiModel.getMaTheLoai());
@@ -94,6 +94,25 @@ public class TheLoaiDAO {
             cursor.close();
         }
         return list_theLoai;
+    }
+
+    public List<TheLoaiModel> getmatheloai(){
+        List<TheLoaiModel> listTheLoai = new ArrayList<>();
+        String truyVan = "SELECT * FROM the_loai";
+        Cursor cursor = databaseDuAn1.getWritableDatabase().rawQuery(truyVan,null);
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            while (cursor.isAfterLast() == false){
+                String maTheLoai = cursor.getString(cursor.getColumnIndex("maTheLoai"));
+
+                TheLoaiModel theLoaiModel = new TheLoaiModel();
+                theLoaiModel.setMaTheLoai(maTheLoai);
+                listTheLoai.add(theLoaiModel);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+        return listTheLoai;
     }
 
 
