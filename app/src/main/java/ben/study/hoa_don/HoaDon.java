@@ -63,6 +63,7 @@ public class HoaDon extends AppCompatActivity {
         listHoaDon = (ArrayList<HoaDonModel>) hoaDonDAO.getallhoadon();
         AdapterHoaDon adapterHoaDon = new AdapterHoaDon(listHoaDon,this);
         lvDanhSachHoaDon.setAdapter(adapterHoaDon);
+        adapterHoaDon.notifyDataSetChanged();
 
     }
 
