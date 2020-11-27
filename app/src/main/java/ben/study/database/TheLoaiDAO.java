@@ -13,7 +13,7 @@ public class TheLoaiDAO {
     private DatabaseDuAn1 databaseDuAn1;
 
     public TheLoaiDAO (DatabaseDuAn1 databaseDuAn1){
-        databaseDuAn1 = this.databaseDuAn1;
+        this.databaseDuAn1 = databaseDuAn1;
     };
 
     public long themTheloai(TheLoaiModel theLoaiModel){
