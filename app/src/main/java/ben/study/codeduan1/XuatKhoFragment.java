@@ -27,7 +27,7 @@ import ben.study.danh_sach_san_pham.DanhSachSanPham;
 import ben.study.model.KhoModel;
 
 
-public class xuatkhoFragment extends Fragment{
+public class XuatKhoFragment extends Fragment{
     private  Button btnNgayXuat,btnXuatKho,btnHuy;
     private ImageView imgkho;
     private EditText edtMaHangXuat,edtTenHangXuat,edtSoLuongXuat,edtNgayXuat;
@@ -35,7 +35,7 @@ public class xuatkhoFragment extends Fragment{
 
 
 
-    public xuatkhoFragment() {
+    public XuatKhoFragment() {
 
     }
 

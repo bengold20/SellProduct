@@ -9,21 +9,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import ben.study.codeduan1.Home;
 import ben.study.codeduan1.R;
-import ben.study.database.DatabaseDuAn1;
-import ben.study.database.HoaDonDAO;
 import ben.study.theLoai.TheLoaiScreen;
 import ben.study.theLoai.ThemSua_TheLoai;
 
 public class HoaDon extends AppCompatActivity {
     Toolbar toolbarHoaDon;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

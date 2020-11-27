@@ -28,11 +28,11 @@ import ben.study.danh_sach_san_pham.DanhSachSanPhamTrongKho;
 import ben.study.model.KhoModel;
 
 
-public class nhapkhoFragment extends Fragment {
+public class NhapKhoFragment extends Fragment {
     private Button btnngaynhap,btnnhapkho,btnhuy;
     private ImageView imgkho;
     private EditText edtMaHangNhap,edtTheloaihangNhap,edtTenHangNhap,edtSoLuongNhap,edtNgayNhap;
-    public nhapkhoFragment() {
+    public NhapKhoFragment() {
     }
 
 

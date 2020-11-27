@@ -9,22 +9,30 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import ben.study.adapter.AdapterTheLoai;
 import ben.study.codeduan1.Home;
 import ben.study.codeduan1.R;
+import ben.study.database.DatabaseDuAn1;
+import ben.study.database.TheLoaiDAO;
 import ben.study.hoa_don.HoaDon;
+import ben.study.model.TheLoaiModel;
 
 public class TheLoaiScreen extends AppCompatActivity {
     Toolbar toolbar_theLoai;
+    private ListView lvDanhSachTheLoai;
+    private ArrayList<TheLoaiModel> theLoaiModels ;
+    private DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
+    private TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_loai_screen);
-
-
-
         addControls();
         addEvents();
     }
@@ -48,6 +56,10 @@ public class TheLoaiScreen extends AppCompatActivity {
 
     private void addControls() {
         toolbar_theLoai = findViewById(R.id.toolbarTheLoai);
+        lvDanhSachTheLoai = findViewById(R.id.lvDanhSachTheLoai);
+        theLoaiModels = (ArrayList<TheLoaiModel>) theLoaiDAO.getAllTheLoai();
+        AdapterTheLoai adapterTheLoai = new AdapterTheLoai(theLoaiModels,this);
+        lvDanhSachTheLoai.setAdapter(adapterTheLoai);
 
     }
 
