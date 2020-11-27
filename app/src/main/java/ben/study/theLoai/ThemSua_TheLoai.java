@@ -55,18 +55,18 @@ public class ThemSua_TheLoai extends AppCompatActivity {
     }
 
     private void xulysuatheloai() {
-        TheLoaiModel theLoaiModel = new TheLoaiModel();
-        String maTheLoai =  edtMaTheLoai.getText().toString();
-        String tenTheLoai =edtTenTheLoai.getText().toString();
-        int viTri = Integer.parseInt(edtViTri.getText().toString());
-        theLoaiModel.setMaTheLoai(maTheLoai);
-        theLoaiModel.setTenTheLoai(tenTheLoai);
-        theLoaiModel.setViTri(viTri);
         DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
         TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
+        TheLoaiModel theLoaiModel = new TheLoaiModel();
+        String tenTheLoai =edtTenTheLoai.getText().toString();
+        int viTri = Integer.parseInt(edtViTri.getText().toString());
+        theLoaiModel.setTenTheLoai(tenTheLoai);
+        theLoaiModel.setViTri(viTri);
+
 //        checkEmpty(theLoaiModel.getMaTheLoai(),edtMaTheLoai);
 //        checkEmpty(theLoaiModel.getTenTheLoai(),edtTenTheLoai);
 //        checkEmpty(String.valueOf(theLoaiModel.getViTri()),edtViTri);
+
         long kq = theLoaiDAO.suaTheloai(theLoaiModel);
         if (kq == 1 ){
             Toast.makeText(this,"Sửa thể loại thành công hi hi " ,Toast.LENGTH_LONG).show();
@@ -89,9 +89,11 @@ public class ThemSua_TheLoai extends AppCompatActivity {
         theLoaiModel.setViTri(viTri);
         DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
         TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
+
 //        checkEmpty(theLoaiModel.getMaTheLoai(),edtMaTheLoai);
 //        checkEmpty(theLoaiModel.getTenTheLoai(),edtTenTheLoai);
 //        checkEmpty(String.valueOf(theLoaiModel.getViTri()),edtViTri);
+
         boolean kq = theLoaiDAO.themTheloai(theLoaiModel);
         if (kq ){
             Toast.makeText(this,"thêm thể loại thành công hi hi " ,Toast.LENGTH_LONG).show();
