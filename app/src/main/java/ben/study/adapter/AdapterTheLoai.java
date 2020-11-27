@@ -2,6 +2,7 @@ package ben.study.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,7 @@ public class AdapterTheLoai extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = LayoutInflater.from(context).inflate(R.layout.item_listview_theloai,viewGroup,false);
         ImageView imgTheLoai = view.findViewById(R.id.imgTheLoai);
-        ImageView imgXoaTheLoai = view.findViewById(R.id.imgXoaTheLoai);
+//        ImageView imgXoaTheLoai = view.findViewById(R.id.imgXoaTheLoai);
         TextView txtListviewTenTheLoai = view.findViewById(R.id.txtListviewTenTheLoai);
         TextView txtListviewMaTheLoai = view.findViewById(R.id.txtListviewMaTheLoai);
         TextView txtListviewViTri = view.findViewById(R.id.txtListviewViTri);
@@ -57,7 +58,7 @@ public class AdapterTheLoai extends BaseAdapter {
         txtListviewTenTheLoai.setText(theLoaiModels.get(i).getTenTheLoai());
         txtListviewMaTheLoai.setText(theLoaiModels.get(i).getMaTheLoai());
         txtListviewViTri.setText(String.valueOf(theLoaiModels.get(i).getViTri()));
-        imgXoaTheLoai.setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.imgXoaTheLoai).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
@@ -65,14 +66,11 @@ public class AdapterTheLoai extends BaseAdapter {
                 builder.setTitle("Bạn có chắc muốn xóa thể loại hàng này không , lưu ý khi xóa thể loại hàng này sẽ mất vĩnh viễn.!");
                 builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        String maTheLoai = theLoaiModels.get(i).getMaTheLoai();
-
+                    public void onClick(DialogInterface dialogInterface, int i1) {
                         DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(view.getContext());
                         TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
-//                        String maTheLoai = theLoaiModels.get(i).getMaTheLoai();
-                        boolean ketQua = theLoaiDAO.xoaTheLoai(maTheLoai);
+                        String ma = theLoaiModels.get(i).getMaTheLoai();
+                        boolean ketQua = theLoaiDAO.xoaTheLoai(ma);
                         if (ketQua) {
                             Toast.makeText(viewGroup.getContext(), "Xoa Thanh Cong!!!",
                                     Toast.LENGTH_SHORT).show();

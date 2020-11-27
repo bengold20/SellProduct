@@ -28,7 +28,7 @@ public class TheLoaiDAO {
         else return false;
     };
 
-    public long suaTheloai(TheLoaiModel theLoaiModel){
+    public int suaTheloai(TheLoaiModel theLoaiModel){
         SQLiteDatabase sqLiteDatabase = databaseDuAn1.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("maTheLoai",theLoaiModel.getMaTheLoai());

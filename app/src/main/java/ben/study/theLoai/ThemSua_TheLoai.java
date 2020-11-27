@@ -45,16 +45,16 @@ public class ThemSua_TheLoai extends AppCompatActivity {
                xulythemtheloai();
            }
        });
+       btnSuaTheLoai.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               xulysuatheloai();
+           }
+       });
 
     }
 
-    private void xulythemtheloai() {
-        xulylaydulieu();
-
-
-    }
-
-    private void xulylaydulieu() {
+    private void xulysuatheloai() {
         TheLoaiModel theLoaiModel = new TheLoaiModel();
         String maTheLoai =  edtMaTheLoai.getText().toString();
         String tenTheLoai =edtTenTheLoai.getText().toString();
@@ -62,24 +62,48 @@ public class ThemSua_TheLoai extends AppCompatActivity {
         theLoaiModel.setMaTheLoai(maTheLoai);
         theLoaiModel.setTenTheLoai(tenTheLoai);
         theLoaiModel.setViTri(viTri);
-        Log.e("lỗi ở đây nè " , " lỗi 1 ");
-         DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
-         TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
+        DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
+        TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
 //        checkEmpty(theLoaiModel.getMaTheLoai(),edtMaTheLoai);
 //        checkEmpty(theLoaiModel.getTenTheLoai(),edtTenTheLoai);
 //        checkEmpty(String.valueOf(theLoaiModel.getViTri()),edtViTri);
-        Log.e("lỗi ở đây nè " , " lỗi 2");
+        long kq = theLoaiDAO.suaTheloai(theLoaiModel);
+        if (kq == 1 ){
+            Toast.makeText(this,"Sửa thể loại thành công hi hi " ,Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this,TheLoaiScreen.class);
+            startActivity(intent);
+        }else {
+            Toast.makeText(this,"Sửa thể loại thất bại rồi xem lại đi bạn ơi " ,Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
+    private void xulythemtheloai() {
+        TheLoaiModel theLoaiModel = new TheLoaiModel();
+        String maTheLoai =  edtMaTheLoai.getText().toString();
+        String tenTheLoai =edtTenTheLoai.getText().toString();
+        int viTri = Integer.parseInt(edtViTri.getText().toString());
+        theLoaiModel.setMaTheLoai(maTheLoai);
+        theLoaiModel.setTenTheLoai(tenTheLoai);
+        theLoaiModel.setViTri(viTri);
+        DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
+        TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
+//        checkEmpty(theLoaiModel.getMaTheLoai(),edtMaTheLoai);
+//        checkEmpty(theLoaiModel.getTenTheLoai(),edtTenTheLoai);
+//        checkEmpty(String.valueOf(theLoaiModel.getViTri()),edtViTri);
         boolean kq = theLoaiDAO.themTheloai(theLoaiModel);
         if (kq ){
             Toast.makeText(this,"thêm thể loại thành công hi hi " ,Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this,TheLoaiScreen.class);
             startActivity(intent);
-            Log.e("lỗi ở đây nè " , " lỗi 3 ");
         }else {
             Toast.makeText(this,"thêm thể loại thất bại rồi xem lại đi bạn ơi " ,Toast.LENGTH_LONG).show();
         }
 
     }
+
+
     public void checkEmpty(String data , EditText edt) {
         if (data.isEmpty()) {
             edt.setError(" Vui lòng nhập đủ thông tin ... ");
