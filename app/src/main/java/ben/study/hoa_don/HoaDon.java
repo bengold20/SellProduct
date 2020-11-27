@@ -9,15 +9,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import ben.study.adapter.AdapterHoaDon;
 import ben.study.codeduan1.Home;
 import ben.study.codeduan1.R;
+import ben.study.database.DatabaseDuAn1;
+import ben.study.database.HoaDonDAO;
+import ben.study.model.HoaDonModel;
 import ben.study.theLoai.TheLoaiScreen;
 import ben.study.theLoai.ThemSua_TheLoai;
 
 public class HoaDon extends AppCompatActivity {
     Toolbar toolbarHoaDon;
+    private ListView lvDanhSachHoaDon;
+    private ArrayList<HoaDonModel> hoaDonModels;
+    private DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
+    private HoaDonDAO hoaDonDAO = new HoaDonDAO(databaseDuAn1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +53,15 @@ public class HoaDon extends AppCompatActivity {
                 startActivity(intent2);
             }
         });
-
     }
 
     private void addControls() {
         toolbarHoaDon = findViewById(R.id.toolbarHoaDon);
-
+        lvDanhSachHoaDon = findViewById(R.id.lvDanhSachHoaDon);
+        hoaDonModels = (ArrayList<HoaDonModel>) hoaDonDAO.getallhoadon();
+        AdapterHoaDon adapterHoaDon = new AdapterHoaDon(hoaDonModels,this);
+        lvDanhSachHoaDon.setAdapter(adapterHoaDon);
+        adapterHoaDon.notifyDataSetChanged();
     }
 
     @Override
