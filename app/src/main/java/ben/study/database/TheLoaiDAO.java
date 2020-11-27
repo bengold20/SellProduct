@@ -16,14 +16,16 @@ public class TheLoaiDAO {
         this.databaseDuAn1 = databaseDuAn1;
     };
 
-    public long themTheloai(TheLoaiModel theLoaiModel){
+    public boolean themTheloai(TheLoaiModel theLoaiModel){
         SQLiteDatabase sqLiteDatabase = databaseDuAn1.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("maTheLoai",theLoaiModel.getMaTheLoai());
         contentValues.put("tenTheLoai",theLoaiModel.getTenTheLoai());
         contentValues.put("viTri",theLoaiModel.getViTri());
 
-        return sqLiteDatabase.insert("theLoai",null,contentValues);
+        long kq = sqLiteDatabase.insert("the_loai",null,contentValues);
+        if (kq > 0) return true;
+        else return false;
     };
 
     public long suaTheloai(TheLoaiModel theLoaiModel){

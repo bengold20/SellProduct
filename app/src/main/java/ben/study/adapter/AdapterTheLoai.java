@@ -56,7 +56,7 @@ public class AdapterTheLoai extends BaseAdapter {
 
         txtListviewTenTheLoai.setText(theLoaiModels.get(i).getTenTheLoai());
         txtListviewMaTheLoai.setText(theLoaiModels.get(i).getMaTheLoai());
-        txtListviewViTri.setText(theLoaiModels.get(i).getViTri());
+        txtListviewViTri.setText(String.valueOf(theLoaiModels.get(i).getViTri()));
         imgXoaTheLoai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,9 +66,12 @@ public class AdapterTheLoai extends BaseAdapter {
                 builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+
+                        String maTheLoai = theLoaiModels.get(i).getMaTheLoai();
+
                         DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(view.getContext());
                         TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
-                        String maTheLoai = theLoaiModels.get(i).getMaTheLoai();
+//                        String maTheLoai = theLoaiModels.get(i).getMaTheLoai();
                         boolean ketQua = theLoaiDAO.xoaTheLoai(maTheLoai);
                         if (ketQua) {
                             Toast.makeText(viewGroup.getContext(), "Xoa Thanh Cong!!!",
