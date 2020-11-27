@@ -12,8 +12,7 @@ public class HoaDonModel {
     public HoaDonModel() {
     }
 
-    public HoaDonModel(String maHoaDon, String tenMatHang, String theLoaiMatHang, int soLuongMatHang, double giaBan,
-                       String ngayMua, double tongThanhToan) {
+    public HoaDonModel(String maHoaDon, String tenMatHang, String theLoaiMatHang, int soLuongMatHang, double giaBan, String ngayMua, double tongThanhToan) {
         this.maHoaDon = maHoaDon;
         this.tenMatHang = tenMatHang;
         this.theLoaiMatHang = theLoaiMatHang;

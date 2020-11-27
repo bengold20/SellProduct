@@ -66,6 +66,8 @@ public class nhapkhoFragment extends Fragment {
         });
         xulylaydulieu();
         return view;
+
+
     }
 
     private void xulylaydulieu() {
