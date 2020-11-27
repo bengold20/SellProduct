@@ -34,7 +34,7 @@
         android:layout_height="200dp" />
 
     <EditText
-        android:id="@+id/edtuser"
+        android:id="@+id/edtUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -42,7 +42,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/edtpass"
+        android:id="@+id/edtPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -50,26 +50,18 @@
         android:inputType="textPersonName" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/Chekbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lưu thông tin đăng nhập cho lần tới" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:text="Quên PassWord"
-        android:textStyle="bold" />
-
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:onClick="kho"
         android:text="Đăng Nhập"
+        android:onClick="kho"
         app:backgroundTint="#89BFE8" />
 
 </LinearLayout>
