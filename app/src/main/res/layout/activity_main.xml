@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="PassWord"
-        android:inputType="textPersonName" />
+        android:inputType="textPassword" />
 
     <CheckBox
         android:id="@+id/Chekbox"
@@ -61,7 +61,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:text="Đăng Nhập"
-        android:onClick="kho"
         app:backgroundTint="#89BFE8" />
 
 </LinearLayout>

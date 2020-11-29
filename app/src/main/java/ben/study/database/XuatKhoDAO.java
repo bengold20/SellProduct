@@ -13,7 +13,7 @@ import ben.study.model.KhoModel;
 public class XuatKhoDAO {
     private DatabaseDuAn1 databaseDuAn1;
     private Context context;
-    public XuatKhoDAO(DatabaseDuAn1 databaseDuAn1 , Context context){
+    public XuatKhoDAO(DatabaseDuAn1 databaseDuAn1){
         this.databaseDuAn1 = databaseDuAn1;
         this.context = context;
     }

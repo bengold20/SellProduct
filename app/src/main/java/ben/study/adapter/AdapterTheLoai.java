@@ -2,7 +2,6 @@ package ben.study.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 
 import ben.study.codeduan1.R;
 import ben.study.database.DatabaseDuAn1;
-import ben.study.database.HoaDonDAO;
 import ben.study.database.TheLoaiDAO;
 import ben.study.model.TheLoaiModel;
 
@@ -58,7 +56,7 @@ public class AdapterTheLoai extends BaseAdapter {
         txtListviewTenTheLoai.setText(theLoaiModels.get(i).getTenTheLoai());
         txtListviewMaTheLoai.setText(theLoaiModels.get(i).getMaTheLoai());
         txtListviewViTri.setText(String.valueOf(theLoaiModels.get(i).getViTri()));
-        view.findViewById(R.id.imgXoaTheLoai).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.imgXoaTheLoaiXK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
@@ -72,7 +70,7 @@ public class AdapterTheLoai extends BaseAdapter {
                         String ma = theLoaiModels.get(i).getMaTheLoai();
                         boolean ketQua = theLoaiDAO.xoaTheLoai(ma);
                         if (ketQua) {
-                            Toast.makeText(viewGroup.getContext(), "Xoa Thanh Cong!!!",
+                            Toast.makeText(viewGroup.getContext(), "Xoa Thanh Cong!!!" ,
                                     Toast.LENGTH_SHORT).show();
                             theLoaiModels.remove(i);
                             notifyDataSetChanged();
