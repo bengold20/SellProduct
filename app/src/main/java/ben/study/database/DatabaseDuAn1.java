@@ -13,13 +13,13 @@ public class DatabaseDuAn1 extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-//        String khoxuat = "CREATE TABLE kho_xuat(maHang TEXT PRIMARY KEY,tenHang TEXT,theLoaiHang TEXT,soLuong INT,ngayXuat Text)";
-        String khonhap = "CREATE TABLE kho_xuat(maHang TEXT PRIMARY KEY,tenHang TEXT,theLoaiHang TEXT,soLuong INT,ngayNhap Text)";
+        String khoxuat = "CREATE TABLE kho_xuat(maHangXuat TEXT PRIMARY KEY,tenHangXuat TEXT,theLoaiHangXuat TEXT,soLuongXuat INT,ngayXuat Text)";
+        String khonhap = "CREATE TABLE kho_nhap(maHangNhap TEXT PRIMARY KEY,tenHangNhap TEXT,theLoaiHangNhap TEXT,soLuongNhap INT,ngayNhap Text)";
 
         String theLoai = "CREATE TABLE the_loai(maTheLoai nvchar PRIMARY KEY,tenTheLoai TEXT,viTri interger)";
         String hoaDon = "CREATE TABLE hoa_don(maHoaDon TEXT PRIMARY KEY,tenHang TEXT,theLoaiHang TEXT,soLuong INT,giaHang REAL,tongThanhToan REAL)";
 
-//        sqLiteDatabase.execSQL(khoxuat);
+        sqLiteDatabase.execSQL(khoxuat);
         sqLiteDatabase.execSQL(khonhap);
         sqLiteDatabase.execSQL(theLoai);
         sqLiteDatabase.execSQL(hoaDon);
