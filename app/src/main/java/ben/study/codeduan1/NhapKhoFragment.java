@@ -20,11 +20,15 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
 import ben.study.danh_sach_san_pham.DanhSachSanPham;
 import ben.study.danh_sach_san_pham.DanhSachSanPhamTrongKho;
+import ben.study.database.DatabaseDuAn1;
+import ben.study.database.KhoDAO;
+import ben.study.hoa_don.Them_Sua_HoaDon;
 import ben.study.model.KhoModel;
 
 
@@ -32,15 +36,34 @@ public class NhapKhoFragment extends Fragment {
     private Button btnngaynhap,btnnhapkho,btnhuy;
     private ImageView imgkho;
     private EditText edtMaHangNhap,edtTheloaihangNhap,edtTenHangNhap,edtSoLuongNhap,edtNgayNhap;
+    DatabaseDuAn1 databaseDuAn1;
+    KhoDAO khoDAO;
+
+
     public NhapKhoFragment() {
+        addControls();
+        addEvents();
+    }
+
+    private void addEvents() {
+
+    }
+
+    private void addControls() {
+
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_nhapkho, container, false);
+
+        databaseDuAn1 = new DatabaseDuAn1(getActivity());
+        khoDAO = new KhoDAO(databaseDuAn1);
+
         btnngaynhap = view.findViewById(R.id.btnNgayNhap);
         btnnhapkho = view.findViewById(R.id.btnNhapKho);
         btnhuy = view.findViewById(R.id.btnHuy);
@@ -50,6 +73,8 @@ public class NhapKhoFragment extends Fragment {
         edtTenHangNhap = view.findViewById(R.id.edtTenHangNhap);
         edtSoLuongNhap = view.findViewById(R.id.edtSoLuongNhap);
         edtNgayNhap = view.findViewById(R.id.edtNgayNhap);
+
+
         btnngaynhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,23 +89,45 @@ public class NhapKhoFragment extends Fragment {
                 datePickerDialog.show();
             }
         });
-        xulylaydulieu();
+
+        btnnhapkho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                xulylaydulieu();
+            }
+        });
+
         return view;
 
 
     }
 
+
     private void xulylaydulieu() {
-        KhoModel kho = new KhoModel();
+
         String maHang = edtMaHangNhap.getText().toString();
         String theLoaiHang = edtTheloaihangNhap.getText().toString();
         String tenHang = edtTenHangNhap.getText().toString();
-//        int soLuong = Integer.parseInt(edtSoLuongNhap.getText().toString());
+        int soLuong = Integer.parseInt(edtSoLuongNhap.getText().toString());
+        String ngayNhap = edtNgayNhap.getText().toString();
 
-        kho.setMaHang(maHang);
-        kho.setTheloaihang(theLoaiHang);
-        kho.setTenHang(tenHang);
-//        kho.setSoLuong(soLuong);
+        KhoModel khoNhap = new KhoModel();
+
+        khoNhap.setMaHang(maHang);
+        khoNhap.setTheloaihang(theLoaiHang);
+        khoNhap.setTenHang(tenHang);
+        khoNhap.setSoLuong(soLuong);
+        khoNhap.setNgayNhap(ngayNhap);
+
+        long result = khoDAO.nhapKho(khoNhap);
+
+        if(result > 0){
+            Toast.makeText(getActivity(),"nhập hàng thành công",Toast.LENGTH_LONG).show();
+        }else {
+            Toast.makeText(getActivity(),"nhập hàng không thành công",Toast.LENGTH_LONG).show();
+        }
+//
+//        Toast.makeText(getActivity(),"nhập hàng không thành công",Toast.LENGTH_LONG).show();
 
     }
 
