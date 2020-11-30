@@ -75,8 +75,6 @@ public class ThemSua_TheLoai extends AppCompatActivity {
         }else {
             Toast.makeText(this,"Sửa thể loại thất bại rồi xem lại đi bạn ơi " ,Toast.LENGTH_LONG).show();
         }
-
-
     }
 
     private void xulythemtheloai() {

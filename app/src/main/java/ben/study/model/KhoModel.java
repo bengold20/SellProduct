@@ -7,17 +7,27 @@ public class KhoModel {
     private int soLuong;
     private String ngayNhap;
     private String ngayXuat;
+    private double gia;
 
     public KhoModel() {
     }
 
-    public KhoModel(String maHang, String tenHang, String theloaihang, int soLuong, String ngayNhap, String ngayXuat) {
+    public KhoModel(String maHang, String tenHang, String theloaihang, int soLuong, String ngayNhap, String ngayXuat ,double gia) {
         this.maHang = maHang;
         this.tenHang = tenHang;
         this.theloaihang = theloaihang;
         this.soLuong = soLuong;
         this.ngayNhap = ngayNhap;
         this.ngayXuat = ngayXuat;
+        this.gia = gia;
+    }
+
+    public double getGia() {
+        return gia;
+    }
+
+    public void setGia(double gia) {
+        this.gia = gia;
     }
 
     public String getMaHang() {
