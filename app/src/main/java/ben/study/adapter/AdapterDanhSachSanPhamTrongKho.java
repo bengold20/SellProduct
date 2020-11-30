@@ -43,7 +43,7 @@ public class AdapterDanhSachSanPhamTrongKho extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view = LayoutInflater.from(context).inflate(R.layout.activity_danh_sach_san_pham_trong_kho,viewGroup,false);
+        view = LayoutInflater.from(context).inflate(R.layout.item_listview_danhsach_nhapkho,viewGroup,false);
 
         TextView txtLvTenHangNK = view.findViewById(R.id.txtLvTenHangNK);
         TextView txtLvTenTheLoaiNK = view.findViewById(R.id.txtLvTenTheLoaiNK);
@@ -51,7 +51,7 @@ public class AdapterDanhSachSanPhamTrongKho extends BaseAdapter {
         TextView txtLvGiaNK =view.findViewById(R.id.txtLvGiaNK);
         txtLvTenHangNK.setText(khoModels.get(i).getTenHang());
         txtLvTenTheLoaiNK.setText(khoModels.get(i).getTheloaihang());
-        txtLvSoLuongNK.setText(khoModels.get(i).getSoLuong());
+        txtLvSoLuongNK.setText(String.valueOf(khoModels.get(i).getSoLuong()));
         txtLvGiaNK.setText(String.valueOf(khoModels.get(i).getGia()));
         view.findViewById(R.id.imgLvXoaNK).setOnClickListener(new View.OnClickListener() {
             @Override
