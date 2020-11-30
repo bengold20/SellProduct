@@ -1,7 +1,6 @@
 package ben.study.codeduan1;
 
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -19,16 +18,12 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
-import ben.study.danh_sach_san_pham.DanhSachSanPham;
 import ben.study.danh_sach_san_pham.DanhSachSanPhamTrongKho;
 import ben.study.database.DatabaseDuAn1;
-import ben.study.database.KhoDAO;
-import ben.study.hoa_don.Them_Sua_HoaDon;
 import ben.study.model.KhoModel;
 
 

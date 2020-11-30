@@ -13,13 +13,10 @@ import androidx.appcompat.app.AlertDialog;
 
 import java.util.ArrayList;
 
-import ben.study.codeduan1.Kho;
 import ben.study.codeduan1.R;
 import ben.study.database.DatabaseDuAn1;
-import ben.study.database.TheLoaiDAO;
 import ben.study.database.XuatKhoDAO;
 import ben.study.model.KhoModel;
-import ben.study.model.SanPhamModel;
 
 public class AdapterDanhSachSanPham extends BaseAdapter {
     private ArrayList<KhoModel> khoModels ;
