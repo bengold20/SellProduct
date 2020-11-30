@@ -1,7 +1,6 @@
 package ben.study.codeduan1;
 
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -19,16 +18,13 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
-import ben.study.danh_sach_san_pham.DanhSachSanPham;
 import ben.study.danh_sach_san_pham.DanhSachSanPhamTrongKho;
 import ben.study.database.DatabaseDuAn1;
-import ben.study.database.KhoDAO;
-import ben.study.hoa_don.Them_Sua_HoaDon;
+import ben.study.database.NhapKhoDAO;
 import ben.study.model.KhoModel;
 
 
@@ -37,7 +33,7 @@ public class NhapKhoFragment extends Fragment {
     private ImageView imgkho;
     private EditText edtMaHangNhap,edtTheloaihangNhap,edtTenHangNhap,edtSoLuongNhap,edtNgayNhap;
     DatabaseDuAn1 databaseDuAn1;
-    KhoDAO khoDAO;
+    NhapKhoDAO nhapKhoDAO;
 
 
     public NhapKhoFragment() {
@@ -62,7 +58,7 @@ public class NhapKhoFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_nhapkho, container, false);
 
         databaseDuAn1 = new DatabaseDuAn1(getActivity());
-        khoDAO = new KhoDAO(databaseDuAn1);
+        nhapKhoDAO = new NhapKhoDAO(databaseDuAn1);
 
         btnngaynhap = view.findViewById(R.id.btnNgayNhap);
         btnnhapkho = view.findViewById(R.id.btnNhapKho);
@@ -119,9 +115,9 @@ public class NhapKhoFragment extends Fragment {
         khoNhap.setSoLuong(soLuong);
         khoNhap.setNgayNhap(ngayNhap);
 
-        long result = khoDAO.nhapKho(khoNhap);
+         boolean result = nhapKhoDAO.themhangnhap(khoNhap);
 
-        if(result > 0){
+        if(result ){
             Toast.makeText(getActivity(),"nhập hàng thành công",Toast.LENGTH_LONG).show();
         }else {
             Toast.makeText(getActivity(),"nhập hàng không thành công",Toast.LENGTH_LONG).show();
