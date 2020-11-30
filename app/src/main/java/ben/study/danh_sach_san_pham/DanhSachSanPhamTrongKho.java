@@ -9,16 +9,31 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ben.study.adapter.AdapterDanhSachSanPhamTrongKho;
 import ben.study.codeduan1.Home;
 import ben.study.codeduan1.Kho;
 import ben.study.codeduan1.R;
+import ben.study.database.DatabaseDuAn1;
+import ben.study.database.NhapKhoDAO;
 import ben.study.hoa_don.HoaDon;
 import ben.study.hoa_don.Them_Sua_HoaDon;
+import ben.study.model.KhoModel;
+import ben.study.model.SanPhamModel;
 
 public class DanhSachSanPhamTrongKho extends AppCompatActivity {
     Toolbar toolbarDanhSachSanPhamTrongKho;
+    ListView lvSanPhamTrongKho;
+    AdapterDanhSachSanPhamTrongKho adapterDanhSachSanPhamTrongKho;
+    List<KhoModel> khoModels;
+    private DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
+    private NhapKhoDAO nhapKhoDAO = new NhapKhoDAO(databaseDuAn1);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +63,11 @@ public class DanhSachSanPhamTrongKho extends AppCompatActivity {
 
     private void addControls() {
         toolbarDanhSachSanPhamTrongKho = findViewById(R.id.toolbarDanhSachSanPhamTrongKho);
+        lvSanPhamTrongKho =findViewById(R.id.lvSanPhamTrongKho);
+        khoModels =  nhapKhoDAO.getallHangKhoNhap();
+        adapterDanhSachSanPhamTrongKho = new AdapterDanhSachSanPhamTrongKho(khoModels,this);
+        lvSanPhamTrongKho.setAdapter(adapterDanhSachSanPhamTrongKho);
+        adapterDanhSachSanPhamTrongKho.notifyDataSetChanged();
 
     }
 

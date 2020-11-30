@@ -12,28 +12,30 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ben.study.codeduan1.R;
 import ben.study.database.DatabaseDuAn1;
 import ben.study.database.NhapKhoDAO;
 import ben.study.database.XuatKhoDAO;
+import ben.study.model.KhoModel;
 import ben.study.model.SanPhamModel;
 
 public class AdapterDanhSachSanPhamTrongKho extends BaseAdapter {
-    private ArrayList<SanPhamModel> sanPhamModels ;
+    private ArrayList<KhoModel> khoModels ;
     private Context context;
-    public AdapterDanhSachSanPhamTrongKho(ArrayList<SanPhamModel> sanPhamModels,Context context){
-        this.sanPhamModels = sanPhamModels ;
+    public AdapterDanhSachSanPhamTrongKho(List<KhoModel> khoModels, Context context){
+        this.khoModels = (ArrayList<KhoModel>) khoModels;
         this.context = context;
     }
     @Override
     public int getCount() {
-        return sanPhamModels.size();
+        return khoModels.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return sanPhamModels.get(i);
+        return khoModels.get(i);
     }
 
     @Override
@@ -49,10 +51,10 @@ public class AdapterDanhSachSanPhamTrongKho extends BaseAdapter {
         TextView txtLvTenTheLoaiNK = view.findViewById(R.id.txtLvTenTheLoaiNK);
         TextView txtLvSoLuongNK = view.findViewById(R.id.txtLvSoLuongNK);
         TextView txtLvGiaNK =view.findViewById(R.id.txtLvGiaNK);
-        txtLvTenHangNK.setText(sanPhamModels.get(i).getTenHang());
-        txtLvTenTheLoaiNK.setText(sanPhamModels.get(i).getTheLoaiHang());
-        txtLvSoLuongNK.setText(sanPhamModels.get(i).getSoLuong());
-        txtLvGiaNK.setText(String.valueOf(sanPhamModels.get(i).getGia()));
+        txtLvTenHangNK.setText(khoModels.get(i).getTenHang());
+        txtLvTenTheLoaiNK.setText(khoModels.get(i).getTheloaihang());
+        txtLvSoLuongNK.setText(khoModels.get(i).getSoLuong());
+        txtLvGiaNK.setText(String.valueOf(khoModels.get(i).getGia()));
         view.findViewById(R.id.imgLvXoaNK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,12 +66,12 @@ public class AdapterDanhSachSanPhamTrongKho extends BaseAdapter {
                     public void onClick(DialogInterface dialogInterface, int i1) {
                         DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(view.getContext());
                         NhapKhoDAO nhapKhoDAO = new NhapKhoDAO(databaseDuAn1);
-                        String ma = sanPhamModels.get(i).getMaMatHang();
+                        String ma = khoModels.get(i).getMaHang();
                         boolean ketQua = nhapKhoDAO.xoahangtrongkhonhap(ma);
                         if (ketQua) {
                             Toast.makeText(viewGroup.getContext(), "Xoa Thanh Cong!!!" ,
                                     Toast.LENGTH_SHORT).show();
-                            sanPhamModels.remove(i);
+                            khoModels.remove(i);
                             notifyDataSetChanged();
                         } else {
                             Toast.makeText(viewGroup.getContext(), "Xoa KHONG Thanh Cong!!!",
