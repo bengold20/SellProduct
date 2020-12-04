@@ -15,34 +15,43 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:title="Thêm Sửa Thể Loại"
-        app:titleTextColor="#F8F5F5" />
+        app:title="Thêm Sửa Thể Loại"/>
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Mã Thể Loại:" />
-
-    <EditText
-        android:id="@+id/edtMaTheLoai"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        app:counterEnabled="true"
+        app:counterMaxLength="10">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtMaTheLoai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="10"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tên Thể Loại:" />
-
-    <EditText
-        android:id="@+id/edtTenTheLoai"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        app:counterEnabled="true"
+       >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtTenTheLoai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="20"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/textView14"
