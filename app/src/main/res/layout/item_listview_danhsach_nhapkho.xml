@@ -13,6 +13,7 @@
 
         <ImageView
             android:id="@+id/imgLvNK"
+            android:layout_marginTop="10dp"
             android:layout_width="100dp"
             android:layout_height="69dp"
             app:srcCompat="@drawable/background_login" />

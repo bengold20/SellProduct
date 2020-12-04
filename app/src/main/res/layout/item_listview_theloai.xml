@@ -12,12 +12,13 @@
 
         <ImageView
             android:id="@+id/imgTheLoai"
+            android:layout_marginTop="10dp"
             android:layout_width="100dp"
             android:layout_height="69dp"
             android:src="@drawable/theloai" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -44,8 +45,8 @@
 
         <ImageView
             android:id="@+id/imgXoaTheLoaiXK"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="50dp"
+            android:layout_height="80dp"
             android:gravity="right"
             android:src="@drawable/delete" />
 
