@@ -40,16 +40,12 @@ public class NhapKhoFragment extends Fragment {
         addControls();
         addEvents();
     }
-
     private void addEvents() {
 
     }
-
     private void addControls() {
 
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -122,11 +118,16 @@ public class NhapKhoFragment extends Fragment {
         }else {
             Toast.makeText(getActivity(),"nhập hàng không thành công",Toast.LENGTH_LONG).show();
         }
-//
-//        Toast.makeText(getActivity(),"nhập hàng không thành công",Toast.LENGTH_LONG).show();
 
     }
-
+    public int validation(){
+        if(edtMaHangNhap.getText().toString().length() <=10  && edtTheloaihangNhap.getText().toString().length() <=20 && edtTenHangNhap.getText().toString().length() <=20 &&
+                edtSoLuongNhap.getText().toString().isEmpty() && edtNgayNhap.getText().toString().isEmpty()){
+            return -1;
+        }else {
+            return 0;
+        }
+    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);

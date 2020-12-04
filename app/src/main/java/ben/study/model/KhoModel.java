@@ -12,21 +12,13 @@ public class KhoModel {
     public KhoModel() {
     }
 
-    public KhoModel(String maHang, String tenHang, String theloaihang, int soLuong, String ngayNhap, String ngayXuat ,double gia) {
+    public KhoModel(String maHang, String tenHang, String theloaihang, int soLuong, String ngayNhap, String ngayXuat, double gia) {
         this.maHang = maHang;
         this.tenHang = tenHang;
         this.theloaihang = theloaihang;
         this.soLuong = soLuong;
         this.ngayNhap = ngayNhap;
         this.ngayXuat = ngayXuat;
-        this.gia = gia;
-    }
-
-    public double getGia() {
-        return gia;
-    }
-
-    public void setGia(double gia) {
         this.gia = gia;
     }
 
@@ -50,7 +42,7 @@ public class KhoModel {
         return theloaihang;
     }
 
-    public void setTheloaihang(String maTheLoai) {
+    public void setTheloaihang(String theloaihang) {
         this.theloaihang = theloaihang;
     }
 
@@ -78,5 +70,11 @@ public class KhoModel {
         this.ngayXuat = ngayXuat;
     }
 
+    public double getGia() {
+        return gia;
+    }
 
+    public void setGia(double gia) {
+        this.gia = gia;
+    }
 }
