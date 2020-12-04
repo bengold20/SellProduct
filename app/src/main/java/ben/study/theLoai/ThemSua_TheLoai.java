@@ -56,7 +56,6 @@ public class ThemSua_TheLoai extends AppCompatActivity {
                checkEmpty(String.valueOf(theLoaiModel.getViTri()),edtViTri);
 
                boolean kq =  theLoaiDAO.themTheloai(theLoaiModel);
-               if ( validation() <0 ) {
                 if (kq){
                     Toast.makeText(ThemSua_TheLoai.this,"thêm thể loại thành công hi hi " ,Toast.LENGTH_LONG).show();
                      Intent intent = new Intent(ThemSua_TheLoai.this,TheLoaiScreen.class);
@@ -65,9 +64,6 @@ public class ThemSua_TheLoai extends AppCompatActivity {
                 Toast.makeText(ThemSua_TheLoai.this,"thêm thể loại thất bại rồi xem lại đi bạn ơi " ,Toast.LENGTH_LONG).show();
             }
                 }
-               }else {
-                   Toast.makeText(ThemSua_TheLoai.this,"nhập thông tin thấy bại xem lại mã thể loại <= 10 , tên thể loại <=20 , vị trí k được để trống!",Toast.LENGTH_LONG).show();
-               }
            }
        });
        btnSuaTheLoai.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +80,6 @@ public class ThemSua_TheLoai extends AppCompatActivity {
                checkEmpty(String.valueOf(theLoaiModel.getViTri()),edtViTri);
 
                long kq = theLoaiDAO.suaTheloai(theLoaiModel);
-               if ( validation() <0 ) {
                    if (kq == 1 ){
                        Toast.makeText(ThemSua_TheLoai.this,"Sửa thể loại thành công  hi hi  " ,Toast.LENGTH_LONG).show();
                        Intent intent = new Intent(ThemSua_TheLoai.this,TheLoaiScreen.class);
@@ -93,9 +88,6 @@ public class ThemSua_TheLoai extends AppCompatActivity {
                            Toast.makeText(ThemSua_TheLoai.this,"Sửa thể loại thất bại rồi xem lại đi bạn ơi " ,Toast.LENGTH_LONG).show();
                        }
                    }
-               }else {
-                   Toast.makeText(ThemSua_TheLoai.this,"nhập thông tin thấy bại xem lại mã thể loại <= 10 , tên thể loại <=20 , vị trí k được để trống!",Toast.LENGTH_LONG).show();
-               }
            }
        });
 

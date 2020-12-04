@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -31,7 +32,8 @@ import ben.study.model.KhoModel;
 public class NhapKhoFragment extends Fragment {
     private Button btnngaynhap,btnnhapkho,btnhuy;
     private ImageView imgkho;
-    private EditText edtMaHangNhap,edtTheloaihangNhap,edtTenHangNhap,edtSoLuongNhap,edtNgayNhap;
+    private EditText edtMaHangNhap,edtTenHangNhap,edtSoLuongNhap,edtNgayNhap;
+    Spinner spnTheLoaiNhapKho;
     DatabaseDuAn1 databaseDuAn1;
     NhapKhoDAO nhapKhoDAO;
 
@@ -65,7 +67,7 @@ public class NhapKhoFragment extends Fragment {
         btnhuy = view.findViewById(R.id.btnHuy);
         imgkho = view.findViewById(R.id.imgkho);
         edtMaHangNhap = view.findViewById(R.id.edtMaHangNhap);
-        edtTheloaihangNhap = view.findViewById(R.id.edtTheLoaiHangNhap);
+        spnTheLoaiNhapKho = view.findViewById(R.id.spnTheLoaiNhapKho);
         edtTenHangNhap = view.findViewById(R.id.edtTenHangNhap);
         edtSoLuongNhap = view.findViewById(R.id.edtSoLuongNhap);
         edtNgayNhap = view.findViewById(R.id.edtNgayNhap);
@@ -102,7 +104,7 @@ public class NhapKhoFragment extends Fragment {
     private void xulylaydulieu() {
 
         String maHang = edtMaHangNhap.getText().toString();
-        String theLoaiHang = edtTheloaihangNhap.getText().toString();
+        String theLoaiHang = spnTheLoaiNhapKho.getSelectedItem().toString();
         String tenHang = edtTenHangNhap.getText().toString();
         int soLuong = Integer.parseInt(edtSoLuongNhap.getText().toString());
         String ngayNhap = edtNgayNhap.getText().toString();

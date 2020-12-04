@@ -13,12 +13,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/edtMaHangXuat"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mã mặt hàng "
-            android:inputType="textPersonName" />
+            app:counterEnabled="true"
+            app:counterMaxLength="10">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtMaHangXuat"
+                android:hint="Mã Mặt Hàng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="10"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
 <!--        <TextView-->
 <!--            android:id="@+id/textView9"-->
@@ -39,21 +45,30 @@
             android:layout_height="wrap_content"
             android:hint="Thể Loại"/>
 
-        <EditText
-            android:id="@+id/edtTenHangXuat"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Tên hàng"
-            android:inputType="textPersonName" />
+            app:counterEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtTenHangXuat"
+                android:hint="Tên Mặt Hàng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="10"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/edtSoLuongXuat"
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Số lượng hàng"
-            android:inputType="textPersonName" />
+            app:counterEnabled="true">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSoLuongXuat"
+                android:hint="Số Lượng Hàng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="10"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

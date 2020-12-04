@@ -17,22 +17,32 @@
         app:title="Thêm Và Sửa Hóa Đơn"
         app:titleTextColor="#FBFBFB" />
 
-
-    <EditText
-        android:id="@+id/edtMaHoaDon"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="mã hóa đơn"
-        android:inputType="textPersonName" />
+        app:counterEnabled="true"
+        app:counterMaxLength="10">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtMaHoaDon"
+            android:hint="Mã Hóa Đơn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="10"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/edtTenMatHangHoaDon"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="tên mặt hàng"
-        android:inputType="textPersonName" />
+        app:counterEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtTenMatHangHoaDon"
+            android:hint="Tên Mặt Hàng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="30"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/textView15"
@@ -45,21 +55,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/edtGiaHangHoaDon"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="giá tiền"
-        android:inputType="textPersonName" />
+        app:counterEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtGiaHangHoaDon"
+            android:hint="Giá Mặt Hàng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="20"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/edtSoLuongHangHoaDon"
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="số lượng" />
+        app:counterEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtSoLuongHangHoaDon"
+            android:hint="Số Lượng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="20"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
         android:id="@+id/edtTongTienHoaDon"
