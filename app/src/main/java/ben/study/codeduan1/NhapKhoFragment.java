@@ -37,7 +37,6 @@ import ben.study.model.TheLoaiModel;
 
 public class NhapKhoFragment extends Fragment {
     private Button btnngaynhap,btnnhapkho,btnhuy,btnSuaKhoNhap;
-    private ImageView imgkho;
     private EditText edtMaHangNhap,edtTenHangNhap,edtSoLuongNhap,edtNgayNhap,edtGiaHangNhap;
     DatabaseDuAn1 databaseDuAn1;
     NhapKhoDAO nhapKhoDAO;
@@ -65,8 +64,6 @@ public class NhapKhoFragment extends Fragment {
         btnnhapkho = view.findViewById(R.id.btnNhapKho);
         btnhuy = view.findViewById(R.id.btnHuy);
         btnSuaKhoNhap = view.findViewById(R.id.btnSuaHangNhapKho);
-
-        imgkho = view.findViewById(R.id.imgkho);
 
         //Edit Text
         edtMaHangNhap = view.findViewById(R.id.edtMaHangNhap);

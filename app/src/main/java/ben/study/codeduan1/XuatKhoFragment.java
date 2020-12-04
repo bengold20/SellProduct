@@ -39,12 +39,9 @@ import ben.study.model.TheLoaiModel;
 
 
 public class XuatKhoFragment extends Fragment{
-    private  Button btnNgayXuat,btnXuatKho,btnHuy;
-    private ImageView imgkho;
+    private  Button btnNgayXuat,btnXuatKho,btnHuyXuatKho,btnSuaHangXuatKho;
     private EditText edtMaHangXuat,edtTenHangXuat,edtSoLuongXuat,edtNgayXuat,edtGiaHangXuat,edtTheLoaiXuatKho;
-    List<TheLoaiModel> listTheLoaiXuat = new ArrayList<>();
     DatabaseDuAn1 databaseDuAn1;
-    KhoModel khoModel;
     XuatKhoDAO xuatKhoDAO;
     TheLoaiDAO theLoaiDAO;
 
@@ -53,10 +50,6 @@ public class XuatKhoFragment extends Fragment{
     Object soLuongHangXuat,ngayNhap,giaHangNhap;
     String ngayNhap1;
     Double giaHangNhap1;
-
-
-
-//    List<KhoModel> soLuongXuatRa ;
 
     //tìm kiếm dữ liệu trong kho
     Button btnFindDSNhapKho;
@@ -83,9 +76,9 @@ public class XuatKhoFragment extends Fragment{
         View view =  inflater.inflate(R.layout.fragment_xuatkho, container, false);
         btnNgayXuat = view.findViewById(R.id.btnngayxuat);
         btnXuatKho = view.findViewById(R.id.btnxuatkho);
-        btnHuy =view.findViewById(R.id.btnHuy);
+        btnHuyXuatKho =view.findViewById(R.id.btnHuy);
         btnFindDSNhapKho = view.findViewById(R.id.btnFindDSNhapKho);
-        imgkho = view.findViewById(R.id.imgkho);
+        btnSuaHangXuatKho = view.findViewById(R.id.btnSuaHangXuatKho);
         //edit text
         edtMaHangXuat = view.findViewById(R.id.edtMaHangXuat);
         edtTenHangXuat= view.findViewById(R.id.edtTenHangXuat);
@@ -179,8 +172,7 @@ public class XuatKhoFragment extends Fragment{
 
                 nhapKhoDAO.suaHangNhap(updateNhapKho);
 
-                if(result && soLuongHangXuat1 > 0){
-
+                if(result){
                     Toast.makeText(getActivity(),"xuất kho thành công" ,Toast.LENGTH_LONG).show();
                 }else {
                     Toast.makeText(getActivity(),"xuất kho không thành công",Toast.LENGTH_LONG).show();
@@ -197,9 +189,55 @@ public class XuatKhoFragment extends Fragment{
             }
         });
 
+        btnSuaHangXuatKho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                xuLySuaHangXuatKho();
+            }
+        });
+
+        btnHuyXuatKho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                edtMaHangXuat.setText("");
+                edtTheLoaiXuatKho.setText("");
+                edtTenHangXuat.setText("");
+                edtSoLuongXuat.setText("");
+                edtGiaHangXuat.setText("");
+                edtNgayXuat.setText("");
+            }
+        });
+
         return view;
 
 
+    }
+
+    private void xuLySuaHangXuatKho() {
+        String maHangXuat = edtMaHangXuat.getText().toString();
+        String theLoaiHangXuat = edtTheLoaiXuatKho.getText().toString();
+        String tenHangXuat = edtTenHangXuat.getText().toString();
+        int soLuongXuat = Integer.parseInt(edtSoLuongXuat.getText().toString());
+        Double giaHangXuat = Double.valueOf(edtGiaHangXuat.getText().toString());
+        String ngayXuat = edtNgayXuat.getText().toString();
+
+        KhoModel khoXuat = new KhoModel();
+
+        khoXuat.setMaHang(maHangXuat);
+        khoXuat.setTheloaihang(theLoaiHangXuat);
+        khoXuat.setTenHang(tenHangXuat);
+        khoXuat.setSoLuong(soLuongXuat);
+        khoXuat.setGia(giaHangXuat);
+        khoXuat.setNgayXuat(ngayXuat);
+        khoXuat.setNgayNhap(ngayNhap1);
+
+        boolean result = xuatKhoDAO.themhangxuat(khoXuat);
+
+        if(result){
+            Toast.makeText(getActivity(),"sửa hàng thành công" ,Toast.LENGTH_LONG).show();
+        }else {
+            Toast.makeText(getActivity(),"sửa hàng không thành công",Toast.LENGTH_LONG).show();
+        }
     }
 
 
@@ -219,6 +257,8 @@ public class XuatKhoFragment extends Fragment{
             lvFindDSNhapKho.setAdapter(adapterNhapKho);
             adapterNhapKho.notifyDataSetChanged();
         }
+
+
 
     }
 

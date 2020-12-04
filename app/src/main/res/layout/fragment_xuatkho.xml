@@ -66,8 +66,7 @@
                 android:id="@+id/btnngayxuat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chọn ngày"
-                app:backgroundTint="#699CB3" />
+                android:text="Chọn ngày" />
 
         </LinearLayout>
 
@@ -81,15 +80,13 @@
                 android:id="@+id/btnxuatkho"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Xuất kho"
-                app:backgroundTint="#1E67A1" />
+                android:text="Xuất kho" />
 
             <Button
                 android:id="@+id/btnHuy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hủy"
-                app:backgroundTint="#1F94F1" />
+                android:text="Hủy" />
 
             <Button
                 android:id="@+id/btnSuaHangXuatKho"
