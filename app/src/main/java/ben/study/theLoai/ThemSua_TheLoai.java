@@ -80,7 +80,7 @@ public class ThemSua_TheLoai extends AppCompatActivity {
     private void xulythemtheloai() {
         TheLoaiModel theLoaiModel = new TheLoaiModel();
         String maTheLoai =  edtMaTheLoai.getText().toString();
-        String tenTheLoai =  edtTenTheLoai.getText().toString();
+        String tenTheLoai =edtTenTheLoai.getText().toString();
         int viTri = Integer.parseInt(edtViTri.getText().toString());
         theLoaiModel.setMaTheLoai(maTheLoai);
         theLoaiModel.setTenTheLoai(tenTheLoai);
