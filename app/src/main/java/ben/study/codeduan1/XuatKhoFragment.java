@@ -41,14 +41,20 @@ import ben.study.model.TheLoaiModel;
 public class XuatKhoFragment extends Fragment{
     private  Button btnNgayXuat,btnXuatKho,btnHuy;
     private ImageView imgkho;
-    private EditText edtMaHangXuat,edtTenHangXuat,edtSoLuongXuat,edtNgayXuat,edtTheLoaiXuatKho;
-    private Spinner spTheLoaiHangXuat;
+    private EditText edtMaHangXuat,edtTenHangXuat,edtSoLuongXuat,edtNgayXuat,edtGiaHangXuat,edtTheLoaiXuatKho;
     List<TheLoaiModel> listTheLoaiXuat = new ArrayList<>();
     DatabaseDuAn1 databaseDuAn1;
     KhoModel khoModel;
     XuatKhoDAO xuatKhoDAO;
     TheLoaiDAO theLoaiDAO;
-    String theLoaiHangXuat;
+
+    //lấy dữ liệu từ list view
+    Integer soLuongHangXuat1,capNhatSoLuongTrongKho;
+    Object soLuongHangXuat,ngayNhap,giaHangNhap;
+    String ngayNhap1;
+    Double giaHangNhap1;
+
+
 
 //    List<KhoModel> soLuongXuatRa ;
 
@@ -80,19 +86,15 @@ public class XuatKhoFragment extends Fragment{
         btnHuy =view.findViewById(R.id.btnHuy);
         btnFindDSNhapKho = view.findViewById(R.id.btnFindDSNhapKho);
         imgkho = view.findViewById(R.id.imgkho);
+        //edit text
         edtMaHangXuat = view.findViewById(R.id.edtMaHangXuat);
         edtTenHangXuat= view.findViewById(R.id.edtTenHangXuat);
         edtSoLuongXuat = view.findViewById(R.id.edtSoLuongXuat);
         edtNgayXuat = view.findViewById(R.id.edtngayxuat);
-        edtFinDSNhapKho = view.findViewById(R.id.edtFinDSNhapKho);
         edtTheLoaiXuatKho = view.findViewById(R.id.edtTheLoaiXuatKho);
+        edtGiaHangXuat = view.findViewById(R.id.edtGiaHangXuat);
 
-        //spinner
-//        spTheLoaiHangXuat = view.findViewById(R.id.spTheLoaiHangXuat);
-//        listTheLoaiXuat = theLoaiDAO.getAllTheLoai();
-//        ArrayAdapter<TheLoaiModel> adapterTheLoaiXuat = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1,listTheLoaiXuat);
-//        spTheLoaiHangXuat.setAdapter(adapterTheLoaiXuat);
-//        adapterTheLoaiXuat.notifyDataSetChanged();
+        edtFinDSNhapKho = view.findViewById(R.id.edtFinDSNhapKho);
 
         //LISTVIEW nhập kho
         lvFindDSNhapKho = view.findViewById(R.id.lvFindDSNhapKho);
@@ -104,29 +106,28 @@ public class XuatKhoFragment extends Fragment{
         lvFindDSNhapKho.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ngayNhap = listNhapKho.get(i).getNgayNhap();
+                ngayNhap1 = ngayNhap.toString();
+
+                Object maHangXuat = listNhapKho.get(i).getMaHang();
+                String maHangXuat1 = maHangXuat.toString();
+                Object theLoaiHangXuat = listNhapKho.get(i).getTheloaihang();
+                String theLoaiHangXuat1 = theLoaiHangXuat.toString();
+                Object tenHangXuat = listNhapKho.get(i).getTenHang();
+                String tenHangXuat1 = tenHangXuat.toString();
+                soLuongHangXuat = listNhapKho.get(i).getSoLuong();
+                soLuongHangXuat1 = Integer.parseInt(soLuongHangXuat.toString());
+                giaHangNhap = listNhapKho.get(i).getGia();
+                giaHangNhap1 = Double.parseDouble(giaHangNhap.toString());
+
+                edtMaHangXuat.setText(maHangXuat1);
+                edtTheLoaiXuatKho.setText(theLoaiHangXuat1);
+                edtTenHangXuat.setText(tenHangXuat1);
+                edtSoLuongXuat.setText(String.valueOf(soLuongHangXuat1));
+                edtGiaHangXuat.setText(String.valueOf(giaHangNhap1));
 
             }
         });
-
-
-
-
-
-
-
-//        //click
-//        spTheLoaiHangXuat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                theLoaiHangXuat = listTheLoaiXuat.get(spTheLoaiHangXuat.getSelectedItemPosition()).getMaTheLoai();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
-
 
         btnNgayXuat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,10 +149,11 @@ public class XuatKhoFragment extends Fragment{
         btnXuatKho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String maHangXuat = edtMaHangXuat.getText().toString();
+                String theLoaiHangXuat = edtTheLoaiXuatKho.getText().toString();
                 String tenHangXuat = edtTenHangXuat.getText().toString();
                 int soLuongXuat = Integer.parseInt(edtSoLuongXuat.getText().toString());
+                Double giaHangXuat = Double.valueOf(edtGiaHangXuat.getText().toString());
                 String ngayXuat = edtNgayXuat.getText().toString();
 
                 KhoModel khoXuat = new KhoModel();
@@ -160,12 +162,26 @@ public class XuatKhoFragment extends Fragment{
                 khoXuat.setTheloaihang(theLoaiHangXuat);
                 khoXuat.setTenHang(tenHangXuat);
                 khoXuat.setSoLuong(soLuongXuat);
-                khoXuat.setNgayNhap(ngayXuat);
-                
+                khoXuat.setGia(giaHangXuat);
+                khoXuat.setNgayXuat(ngayXuat);
+                khoXuat.setNgayNhap(ngayNhap1);
+
                 boolean result = xuatKhoDAO.themhangxuat(khoXuat);
 
-                if(result){
-                    Toast.makeText(getActivity(),"xuất kho thành công",Toast.LENGTH_LONG).show();
+                KhoModel updateNhapKho = new KhoModel();
+                capNhatSoLuongTrongKho = soLuongHangXuat1 - Integer.parseInt(edtSoLuongXuat.getText().toString());
+                updateNhapKho.setMaHang(maHangXuat);
+                updateNhapKho.setTheloaihang(theLoaiHangXuat);
+                updateNhapKho.setTenHang(tenHangXuat);
+                updateNhapKho.setSoLuong(capNhatSoLuongTrongKho);
+                updateNhapKho.setGia(giaHangNhap1);
+                updateNhapKho.setNgayNhap(ngayNhap1);
+
+                nhapKhoDAO.suaHangNhap(updateNhapKho);
+
+                if(result && soLuongHangXuat1 > 0){
+
+                    Toast.makeText(getActivity(),"xuất kho thành công" ,Toast.LENGTH_LONG).show();
                 }else {
                     Toast.makeText(getActivity(),"xuất kho không thành công",Toast.LENGTH_LONG).show();
                 }

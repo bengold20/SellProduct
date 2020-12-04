@@ -69,11 +69,11 @@ public class ThemSua_TheLoai extends AppCompatActivity {
 
         long kq = theLoaiDAO.suaTheloai(theLoaiModel);
         if (kq == 1 ){
-            Toast.makeText(this,"Sửa thể loại thành công hi hi " ,Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Sửa thể loại thành công" ,Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this,TheLoaiScreen.class);
             startActivity(intent);
         }else {
-            Toast.makeText(this,"Sửa thể loại thất bại rồi xem lại đi bạn ơi " ,Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Sửa thể loại thất bại" ,Toast.LENGTH_LONG).show();
         }
     }
 

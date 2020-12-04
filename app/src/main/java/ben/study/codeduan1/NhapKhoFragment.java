@@ -36,9 +36,9 @@ import ben.study.model.TheLoaiModel;
 
 
 public class NhapKhoFragment extends Fragment {
-    private Button btnngaynhap,btnnhapkho,btnhuy;
+    private Button btnngaynhap,btnnhapkho,btnhuy,btnSuaKhoNhap;
     private ImageView imgkho;
-    private EditText edtMaHangNhap,edtTenHangNhap,edtSoLuongNhap,edtNgayNhap;
+    private EditText edtMaHangNhap,edtTenHangNhap,edtSoLuongNhap,edtNgayNhap,edtGiaHangNhap;
     DatabaseDuAn1 databaseDuAn1;
     NhapKhoDAO nhapKhoDAO;
     TheLoaiDAO theLoaiDAO;
@@ -64,10 +64,15 @@ public class NhapKhoFragment extends Fragment {
         btnngaynhap = view.findViewById(R.id.btnNgayNhap);
         btnnhapkho = view.findViewById(R.id.btnNhapKho);
         btnhuy = view.findViewById(R.id.btnHuy);
+        btnSuaKhoNhap = view.findViewById(R.id.btnSuaHangNhapKho);
+
         imgkho = view.findViewById(R.id.imgkho);
+
+        //Edit Text
         edtMaHangNhap = view.findViewById(R.id.edtMaHangNhap);
         edtTenHangNhap = view.findViewById(R.id.edtTenHangNhap);
         edtSoLuongNhap = view.findViewById(R.id.edtSoLuongNhap);
+        edtGiaHangNhap = view.findViewById(R.id.edtGiaHangNhap);
         edtNgayNhap = view.findViewById(R.id.edtNgayNhap);
 
         //spinner
@@ -108,14 +113,24 @@ public class NhapKhoFragment extends Fragment {
         btnnhapkho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                xulylaydulieu();
+                xuLyThemHang();
             }
         });
 
         btnhuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),theloai + "đây thể loại",Toast.LENGTH_LONG).show();
+                edtMaHangNhap.setText("");
+                edtTenHangNhap.setText("");
+                edtSoLuongNhap.setText("");
+                edtGiaHangNhap.setText("");
+                edtNgayNhap.setText("");
+            }
+        });
+        btnSuaKhoNhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                xuLySuaNhapKho();
             }
         });
 
@@ -125,21 +140,49 @@ public class NhapKhoFragment extends Fragment {
 
     }
 
-
-    private void xulylaydulieu() {
-
+    private void xuLySuaNhapKho() {
         String maHang = edtMaHangNhap.getText().toString();
         String tenHang = edtTenHangNhap.getText().toString();
-        int soLuong = Integer.parseInt(edtSoLuongNhap.getText().toString());
+        Integer soLuong = Integer.parseInt(edtSoLuongNhap.getText().toString());
+        Double giaNhap = Double.valueOf(edtGiaHangNhap.getText().toString());
         String ngayNhap = edtNgayNhap.getText().toString();
 
         KhoModel khoNhap = new KhoModel();
 
         khoNhap.setMaHang(maHang);
         khoNhap.setTheloaihang(theloai);
-        Log.e( "xulylaydulieu: thể loại",theloai );
         khoNhap.setTenHang(tenHang);
         khoNhap.setSoLuong(soLuong);
+        khoNhap.setGia(giaNhap);
+        khoNhap.setNgayNhap(ngayNhap);
+
+        int result = nhapKhoDAO.suaHangNhap(khoNhap);
+
+
+
+        if(result > 0 ){
+            Toast.makeText(getActivity(),"nhập hàng thành công" + theloai + maHang,Toast.LENGTH_LONG).show();
+        }else {
+            Toast.makeText(getActivity(),"nhập hàng không thành công"+ theloai + maHang,Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+    private void xuLyThemHang() {
+
+        String maHang = edtMaHangNhap.getText().toString();
+        String tenHang = edtTenHangNhap.getText().toString();
+        Integer soLuong = Integer.parseInt(edtSoLuongNhap.getText().toString());
+        Double giaNhap = Double.valueOf(edtGiaHangNhap.getText().toString());
+        String ngayNhap = edtNgayNhap.getText().toString();
+
+        KhoModel khoNhap = new KhoModel();
+
+        khoNhap.setMaHang(maHang);
+        khoNhap.setTheloaihang(theloai);
+        khoNhap.setTenHang(tenHang);
+        khoNhap.setSoLuong(soLuong);
+        khoNhap.setGia(giaNhap);
         khoNhap.setNgayNhap(ngayNhap);
 
          boolean result = nhapKhoDAO.themhangnhap(khoNhap);
@@ -147,9 +190,9 @@ public class NhapKhoFragment extends Fragment {
 
 
         if(result ){
-            Toast.makeText(getActivity(),"nhập hàng thành công" + theloai + maHang,Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"nhập hàng thành công",Toast.LENGTH_LONG).show();
         }else {
-            Toast.makeText(getActivity(),"nhập hàng không thành công"+ theloai + maHang,Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"nhập hàng không thành công",Toast.LENGTH_LONG).show();
         }
 
     }

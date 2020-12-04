@@ -25,7 +25,9 @@ public class XuatKhoDAO {
         contentValues.put("tenHangXuat",khoModel.getTenHang());
         contentValues.put("theLoaiHangXuat",khoModel.getTheloaihang());
         contentValues.put("soLuongXuat",khoModel.getSoLuong());
-        contentValues.put("ngayXuat",khoModel.getNgayNhap());
+        contentValues.put("giaHangXuat",khoModel.getGia());
+        contentValues.put("ngayXuat",khoModel.getNgayXuat());
+        contentValues.put("ngayNhap",khoModel.getNgayNhap());
 
         long kq =  sqLiteDatabase.insert("kho_xuat",null,contentValues);
         if (kq > 0) return true;
@@ -48,15 +50,21 @@ public class XuatKhoDAO {
                 String tenHangNhap = cursor.getString(cursor.getColumnIndex("tenHangXuat"));
                 String theLoaiHangNhap = cursor.getString(cursor.getColumnIndex("theLoaiHangXuat"));
                 int soLuongNhap = cursor.getInt(cursor.getColumnIndex("soLuongXuat"));
-                String ngayNhap = cursor.getString(cursor.getColumnIndex("ngayXuat"));
+                Double giaHangXuat = cursor.getDouble(cursor.getColumnIndex("giaHangXuat"));
+                String ngayXuat = cursor.getString(cursor.getColumnIndex("ngayXuat"));
+                String ngayNhap = cursor.getString(cursor.getColumnIndex("ngayNhap"));
 
                 KhoModel khoModel = new KhoModel();
                 khoModel.setMaHang(maHangNhap);
                 khoModel.setTenHang(tenHangNhap);
                 khoModel.setTheloaihang(theLoaiHangNhap);
                 khoModel.setSoLuong(soLuongNhap);
+                khoModel.setGia(giaHangXuat);
+                khoModel.setNgayXuat(ngayXuat);
                 khoModel.setNgayNhap(ngayNhap);
+
                 khoModels.add(khoModel);
+
                 cursor.moveToNext();
             }
             cursor.close();
@@ -71,7 +79,9 @@ public class XuatKhoDAO {
         contentValues.put("tenHangXuat",khoModel.getTenHang());
         contentValues.put("theLoaiHangXuat",khoModel.getTheloaihang());
         contentValues.put("soLuongXuat",khoModel.getSoLuong());
-        contentValues.put("ngayXuat",khoModel.getNgayNhap());
+        contentValues.put("giaHangXuat",khoModel.getGia());
+        contentValues.put("ngayXuat",khoModel.getNgayXuat());
+        contentValues.put("ngayNhap",khoModel.getNgayNhap());
         return sqLiteDatabase.update("kho_xuat",contentValues,"maHangXuat=?",new String[]{khoModel.getMaHang()});
     }
 }

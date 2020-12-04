@@ -47,10 +47,12 @@ public class AdapterDanhSachSanPham extends BaseAdapter {
         TextView txtLvTenTheLoaiXK = view.findViewById(R.id.txtLvTenTheLoaiXK);
         TextView txtLvSoLuongXK = view.findViewById(R.id.txtLvSoLuongXK);
         TextView txtLvGiaXK =view.findViewById(R.id.txtLvGiaXK);
+
         txtLvTenHangXK.setText(khoModels.get(i).getTenHang());
         txtLvTenTheLoaiXK.setText(khoModels.get(i).getTheloaihang());
-        txtLvSoLuongXK.setText(khoModels.get(i).getSoLuong());
-//        txtLvGiaXK.setText((int) sanPhamModels.get(i).getGia());
+        txtLvSoLuongXK.setText(String.valueOf(khoModels.get(i).getSoLuong()));
+        txtLvGiaXK.setText(String.valueOf(khoModels.get(i).getGia()));
+
         txtLvGiaXK.setText(String.valueOf(khoModels.get(i).getGia()));
         view.findViewById(R.id.imgXoaTheLoaiXK).setOnClickListener(new View.OnClickListener() {
             @Override

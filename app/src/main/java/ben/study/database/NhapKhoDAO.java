@@ -26,6 +26,7 @@ public class NhapKhoDAO {
         contentValues.put("tenHangNhap",khoModel.getTenHang());
         contentValues.put("theLoaiHangNhap",khoModel.getTheloaihang());
         contentValues.put("soLuongNhap",khoModel.getSoLuong());
+        contentValues.put("giaHangNhap",khoModel.getGia());
         contentValues.put("ngayNhap",khoModel.getNgayNhap());
 
         long kq =  sqLiteDatabase.insert("kho_nhap",null,contentValues);
@@ -49,15 +50,20 @@ public class NhapKhoDAO {
                 String tenHangNhap = cursor.getString(cursor.getColumnIndex("tenHangNhap"));
                 String theLoaiHangNhap = cursor.getString(cursor.getColumnIndex("theLoaiHangNhap"));
                 int soLuongNhap = cursor.getInt(cursor.getColumnIndex("soLuongNhap"));
+                Double giaHangNhap = cursor.getDouble(cursor.getColumnIndex("giaHangNhap"));
                 String ngayNhap = cursor.getString(cursor.getColumnIndex("ngayNhap"));
 
                 KhoModel khoModel = new KhoModel();
-               khoModel.setMaHang(maHangNhap);
-               khoModel.setTenHang(tenHangNhap);
+
+                khoModel.setMaHang(maHangNhap);
+                khoModel.setTenHang(tenHangNhap);
                 khoModel.setTheloaihang(theLoaiHangNhap);
                 khoModel.setSoLuong(soLuongNhap);
+                khoModel.setGia(giaHangNhap);
                 khoModel.setNgayNhap(ngayNhap);
+
                 khoModels.add(khoModel);
+
                 cursor.moveToNext();
             }
             cursor.close();
@@ -72,6 +78,7 @@ public class NhapKhoDAO {
         contentValues.put("tenHangNhap",khoModel.getTenHang());
         contentValues.put("theLoaiHangNhap",khoModel.getTheloaihang());
         contentValues.put("soLuongNhap",khoModel.getSoLuong());
+        contentValues.put("giaHangNhap",khoModel.getGia());
         contentValues.put("ngayNhap",khoModel.getNgayNhap());
         return sqLiteDatabase.update("kho_nhap",contentValues,"maHangNhap=?",new String[]{khoModel.getMaHang()});
     }
@@ -87,6 +94,7 @@ public class NhapKhoDAO {
                 String tenHangNhap = cursor.getString(cursor.getColumnIndex("tenHangNhap"));
                 String theLoaiHangNhap = cursor.getString(cursor.getColumnIndex("theLoaiHangNhap"));
                 int soLuongNhap = cursor.getInt(cursor.getColumnIndex("soLuongNhap"));
+                Double giaHangNhap = cursor.getDouble(cursor.getColumnIndex("giaHangNhap"));
                 String ngayNhap = cursor.getString(cursor.getColumnIndex("ngayNhap"));
 
                 KhoModel khoModel = new KhoModel();
@@ -94,12 +102,16 @@ public class NhapKhoDAO {
                 khoModel.setTenHang(tenHangNhap);
                 khoModel.setTheloaihang(theLoaiHangNhap);
                 khoModel.setSoLuong(soLuongNhap);
+                khoModel.setGia(giaHangNhap);
                 khoModel.setNgayNhap(ngayNhap);
+
                 khoModels.add(khoModel);
+
                 cursor.moveToNext();
             }
             cursor.close();
         }
         return khoModels;
     }
+
 }

@@ -20,19 +20,6 @@
             android:hint="Mã mặt hàng "
             android:inputType="textPersonName" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/textView9"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Thể loại hàng :"-->
-<!--            android:textSize="18sp"-->
-<!--            android:textStyle="bold" />-->
-
-<!--        <Spinner-->
-<!--            android:id="@+id/spTheLoaiHangXuat"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" />-->
-
         <EditText
             android:id="@+id/edtTheLoaiXuatKho"
             android:layout_width="match_parent"
@@ -46,6 +33,13 @@
             android:ems="10"
             android:hint="Tên hàng"
             android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/edtGiaHangXuat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="giá"/>
+
 
         <EditText
             android:id="@+id/edtSoLuongXuat"
@@ -96,6 +90,12 @@
                 android:layout_height="wrap_content"
                 android:text="Hủy"
                 app:backgroundTint="#1F94F1" />
+
+            <Button
+                android:id="@+id/btnSuaHangXuatKho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sửa" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

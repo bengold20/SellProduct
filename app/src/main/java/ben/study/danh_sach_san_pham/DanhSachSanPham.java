@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -65,6 +66,16 @@ public class DanhSachSanPham extends AppCompatActivity {
         adapterDanhSachSanPham = new AdapterDanhSachSanPham(khoModels , this);
         lvDanhSachSanPham.setAdapter(adapterDanhSachSanPham);
         adapterDanhSachSanPham.notifyDataSetChanged();
+
+        //onclick listview
+        lvDanhSachSanPham.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Object object = khoModels.get(i);
+                String hienThi = object.toString();
+                Toast.makeText(DanhSachSanPham.this,hienThi,Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
