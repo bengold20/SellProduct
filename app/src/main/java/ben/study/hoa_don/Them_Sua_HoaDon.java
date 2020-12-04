@@ -135,9 +135,6 @@ public class Them_Sua_HoaDon extends AppCompatActivity {
             Toast.makeText(Them_Sua_HoaDon.this,"nhập thành công",Toast.LENGTH_LONG).show();
         }
 
-
-
-
     }
 
     public int validation(){

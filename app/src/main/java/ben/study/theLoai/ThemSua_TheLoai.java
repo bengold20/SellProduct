@@ -56,18 +56,17 @@ public class ThemSua_TheLoai extends AppCompatActivity {
                checkEmpty(String.valueOf(theLoaiModel.getViTri()),edtViTri);
 
                boolean kq =  theLoaiDAO.themTheloai(theLoaiModel);
-               if ( edtMaTheLoai.getText().toString().length() <=10  || edtTenTheLoai.getText().toString().length() <=20 ||
-                       edtViTri.getText().toString().isEmpty() ) {
-                   Toast.makeText(ThemSua_TheLoai.this, "nhập thông tin thấy bại xem lại mã thể loại <= 10 , tên thể loại <=20 , vị trí k được để trống!", Toast.LENGTH_LONG).show();
-
-                   if (kq) {
-                       Toast.makeText(ThemSua_TheLoai.this, "thêm thể loại thành công hi hi ", Toast.LENGTH_LONG).show();
-                       Intent intent = new Intent(ThemSua_TheLoai.this, TheLoaiScreen.class);
-                       startActivity(intent);
-                       {
-                           Toast.makeText(ThemSua_TheLoai.this, "thêm thể loại thất bại rồi xem lại đi bạn ơi ", Toast.LENGTH_LONG).show();
-                       }
-                   }
+               if ( validation() <0 ) {
+                if (kq){
+                    Toast.makeText(ThemSua_TheLoai.this,"thêm thể loại thành công hi hi " ,Toast.LENGTH_LONG).show();
+                     Intent intent = new Intent(ThemSua_TheLoai.this,TheLoaiScreen.class);
+                     startActivity(intent);
+             {
+                Toast.makeText(ThemSua_TheLoai.this,"thêm thể loại thất bại rồi xem lại đi bạn ơi " ,Toast.LENGTH_LONG).show();
+            }
+                }
+               }else {
+                   Toast.makeText(ThemSua_TheLoai.this,"nhập thông tin thấy bại xem lại mã thể loại <= 10 , tên thể loại <=20 , vị trí k được để trống!",Toast.LENGTH_LONG).show();
                }
            }
        });
@@ -105,7 +104,7 @@ public class ThemSua_TheLoai extends AppCompatActivity {
 
 
     public int validation(){
-        if(edtMaTheLoai.getText().toString().length() <=10  && edtTenTheLoai.getText().toString().length() <=20 && edtViTri.getText().toString().isEmpty()){
+        if(edtMaTheLoai.getText().toString().length() >=10  && edtTenTheLoai.getText().toString().length() >=20 && edtViTri.getText().toString().isEmpty()){
             return -1;
         }else {
             return 0;

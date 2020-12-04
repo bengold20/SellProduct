@@ -30,24 +30,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addControl() {
-    edtUser = findViewById(R.id.edtUser);
-    edtPass = findViewById(R.id.edtPass);
-    Chekbox = findViewById(R.id.Chekbox);
-    btnLogin = findViewById(R.id.btnLogin);
-    btnLogin.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            String user = edtUser.getText().toString();
-            String pass =  edtPass.getText().toString();
-            if (user.equals("admin") && pass.equals("admin")){
-                Toast.makeText(MainActivity.this,"Đăng nhập hệ thống thành công: !" , Toast.LENGTH_LONG).show();
+//    edtUser = findViewById(R.id.edtUser);
+//    edtPass = findViewById(R.id.edtPass);
+//    Chekbox = findViewById(R.id.Chekbox);
+//    btnLogin = findViewById(R.id.btnLogin);
+//    btnLogin.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View view) {
+//            String user = edtUser.getText().toString();
+//            String pass =  edtPass.getText().toString();
+//            if (user.equals("admin") && pass.equals("admin")){
+//                Toast.makeText(MainActivity.this,"Đăng nhập hệ thống thành công: !" , Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, Home.class);
                 startActivity(intent);
-            }else {
-                Toast.makeText(MainActivity.this,"Đăng nhập hệ thống thất bại vui lòng xem lại đi bạn eei:1" , Toast.LENGTH_LONG).show();
-            }
-
-        }
-    });
+//            }else {
+//                Toast.makeText(MainActivity.this,"Đăng nhập hệ thống thất bại vui lòng xem lại đi bạn eei:1" , Toast.LENGTH_LONG).show();
+//            }
+//
+//        }
+//    });
     }
 }

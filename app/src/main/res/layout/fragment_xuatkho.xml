@@ -13,12 +13,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imgkho"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/xuatkho" />
-
         <EditText
             android:id="@+id/edtMaHangXuat"
             android:layout_width="match_parent"
@@ -26,18 +20,24 @@
             android:hint="Mã mặt hàng "
             android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textView9"
+<!--        <TextView-->
+<!--            android:id="@+id/textView9"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Thể loại hàng :"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <Spinner-->
+<!--            android:id="@+id/spTheLoaiHangXuat"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+        <EditText
+            android:id="@+id/edtTheLoaiXuatKho"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Thể loại hàng :"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/spTheLoaiHangXuat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:hint="Thể Loại"/>
 
         <EditText
             android:id="@+id/edtTenHangXuat"
@@ -97,7 +97,38 @@
                 android:text="Hủy"
                 app:backgroundTint="#1F94F1" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtFinDSNhapKho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="8" />
+
+            <Button
+                android:id="@+id/btnFindDSNhapKho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="tìm kiếm" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ListView
+                android:id="@+id/lvFindDSNhapKho"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
 
     </LinearLayout>
+
+
+
 
 </FrameLayout>
