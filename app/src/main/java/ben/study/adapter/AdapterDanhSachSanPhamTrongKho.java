@@ -87,6 +87,14 @@ public class AdapterDanhSachSanPhamTrongKho extends BaseAdapter {
             }
         });
 
+        view.findViewById(R.id.imgLvNK).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Object object = khoModels.get(i);
+                Toast.makeText(context,"đây là: " + object,Toast.LENGTH_LONG).show();
+            }
+        });
+
         return view;
     }
 }

@@ -40,10 +40,6 @@ public class TheLoaiModel {
 
     @Override
     public String toString() {
-        return "TheLoaiModel{" +
-                "maTheLoai='" + maTheLoai + '\'' +
-                ", tenTheLoai='" + tenTheLoai + '\'' +
-                ", viTri=" + viTri +
-                '}';
+        return "Tên Thế Loại: " + tenTheLoai;
     }
 }

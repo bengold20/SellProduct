@@ -8,47 +8,47 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.List;
 
 import ben.study.danh_sach_san_pham.DanhSachSanPhamTrongKho;
 import ben.study.database.DatabaseDuAn1;
 import ben.study.database.NhapKhoDAO;
+import ben.study.database.TheLoaiDAO;
 import ben.study.model.KhoModel;
+import ben.study.model.TheLoaiModel;
 
 
 public class NhapKhoFragment extends Fragment {
     private Button btnngaynhap,btnnhapkho,btnhuy;
     private ImageView imgkho;
-    private EditText edtMaHangNhap,edtTheloaihangNhap,edtTenHangNhap,edtSoLuongNhap,edtNgayNhap;
+    private EditText edtMaHangNhap,edtTenHangNhap,edtSoLuongNhap,edtNgayNhap;
     DatabaseDuAn1 databaseDuAn1;
     NhapKhoDAO nhapKhoDAO;
-
+    TheLoaiDAO theLoaiDAO;
+    //spinner
+    Spinner spnTheLoaiNhapKho;
+    List<TheLoaiModel> listTheLoaiNhapKho;
+    String theloai;
 
     public NhapKhoFragment() {
-        addControls();
-        addEvents();
     }
-
-    private void addEvents() {
-
-    }
-
-    private void addControls() {
-
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,16 +59,35 @@ public class NhapKhoFragment extends Fragment {
 
         databaseDuAn1 = new DatabaseDuAn1(getActivity());
         nhapKhoDAO = new NhapKhoDAO(databaseDuAn1);
+        theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
 
         btnngaynhap = view.findViewById(R.id.btnNgayNhap);
         btnnhapkho = view.findViewById(R.id.btnNhapKho);
         btnhuy = view.findViewById(R.id.btnHuy);
         imgkho = view.findViewById(R.id.imgkho);
         edtMaHangNhap = view.findViewById(R.id.edtMaHangNhap);
-        edtTheloaihangNhap = view.findViewById(R.id.edtTheLoaiHangNhap);
         edtTenHangNhap = view.findViewById(R.id.edtTenHangNhap);
         edtSoLuongNhap = view.findViewById(R.id.edtSoLuongNhap);
         edtNgayNhap = view.findViewById(R.id.edtNgayNhap);
+
+        //spinner
+        spnTheLoaiNhapKho = view.findViewById(R.id.spnTheLoaiNhapKho);
+        listTheLoaiNhapKho = theLoaiDAO.getAllTheLoai();
+        ArrayAdapter<TheLoaiModel> adapterTheLoaiTrongKho = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1,listTheLoaiNhapKho);
+        spnTheLoaiNhapKho.setAdapter(adapterTheLoaiTrongKho);
+        adapterTheLoaiTrongKho.notifyDataSetChanged();
+        //click spinner
+        spnTheLoaiNhapKho.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                theloai = listTheLoaiNhapKho.get(spnTheLoaiNhapKho.getSelectedItemPosition()).getTenTheLoai();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 
         btnngaynhap.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +112,15 @@ public class NhapKhoFragment extends Fragment {
             }
         });
 
+        btnhuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),theloai + "đây thể loại",Toast.LENGTH_LONG).show();
+            }
+        });
+
         return view;
+
 
 
     }
@@ -102,7 +129,6 @@ public class NhapKhoFragment extends Fragment {
     private void xulylaydulieu() {
 
         String maHang = edtMaHangNhap.getText().toString();
-        String theLoaiHang = edtTheloaihangNhap.getText().toString();
         String tenHang = edtTenHangNhap.getText().toString();
         int soLuong = Integer.parseInt(edtSoLuongNhap.getText().toString());
         String ngayNhap = edtNgayNhap.getText().toString();
@@ -110,20 +136,21 @@ public class NhapKhoFragment extends Fragment {
         KhoModel khoNhap = new KhoModel();
 
         khoNhap.setMaHang(maHang);
-        khoNhap.setTheloaihang(theLoaiHang);
+        khoNhap.setTheloaihang(theloai);
+        Log.e( "xulylaydulieu: thể loại",theloai );
         khoNhap.setTenHang(tenHang);
         khoNhap.setSoLuong(soLuong);
         khoNhap.setNgayNhap(ngayNhap);
 
          boolean result = nhapKhoDAO.themhangnhap(khoNhap);
 
+
+
         if(result ){
-            Toast.makeText(getActivity(),"nhập hàng thành công",Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"nhập hàng thành công" + theloai + maHang,Toast.LENGTH_LONG).show();
         }else {
-            Toast.makeText(getActivity(),"nhập hàng không thành công",Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"nhập hàng không thành công"+ theloai + maHang,Toast.LENGTH_LONG).show();
         }
-//
-//        Toast.makeText(getActivity(),"nhập hàng không thành công",Toast.LENGTH_LONG).show();
 
     }
 
