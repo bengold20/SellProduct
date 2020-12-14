@@ -18,8 +18,6 @@ import ben.study.model.TheLoaiModel;
 public class ThemSua_TheLoai extends AppCompatActivity {
     EditText edtMaTheLoai ,edtTenTheLoai,edtViTri;
     Button btnThemTheLoai,btnSuaTheLoai;
-//    private DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
-//    private TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +61,6 @@ public class ThemSua_TheLoai extends AppCompatActivity {
         theLoaiModel.setTenTheLoai(tenTheLoai);
         theLoaiModel.setViTri(viTri);
 
-//        checkEmpty(theLoaiModel.getMaTheLoai(),edtMaTheLoai);
-//        checkEmpty(theLoaiModel.getTenTheLoai(),edtTenTheLoai);
-//        checkEmpty(String.valueOf(theLoaiModel.getViTri()),edtViTri);
-
         long kq = theLoaiDAO.suaTheloai(theLoaiModel);
         if (kq == 1 ){
             Toast.makeText(this,"Sửa thể loại thành công" ,Toast.LENGTH_LONG).show();
@@ -88,17 +82,13 @@ public class ThemSua_TheLoai extends AppCompatActivity {
         DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
         TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
 
-//        checkEmpty(theLoaiModel.getMaTheLoai(),edtMaTheLoai);
-//        checkEmpty(theLoaiModel.getTenTheLoai(),edtTenTheLoai);
-//        checkEmpty(String.valueOf(theLoaiModel.getViTri()),edtViTri);
-
         boolean kq = theLoaiDAO.themTheloai(theLoaiModel);
         if (kq ){
-            Toast.makeText(this,"thêm thể loại thành công hi hi " ,Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"thêm thể loại thành công" ,Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this,TheLoaiScreen.class);
             startActivity(intent);
         }else {
-            Toast.makeText(this,"thêm thể loại thất bại rồi xem lại đi bạn ơi " ,Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"thêm thể loại thất bại" ,Toast.LENGTH_LONG).show();
         }
 
     }

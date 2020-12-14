@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ben.study.hoa_don.Them_Sua_HoaDon"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    >
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarThemSuaHoaDon"
         android:layout_width="match_parent"
@@ -16,6 +16,18 @@
         android:theme="?attr/actionBarTheme"
         app:title="Thêm Và Sửa Hóa Đơn"
         app:titleTextColor="#FBFBFB" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="10"
+        android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -29,6 +41,14 @@
             android:layout_height="wrap_content"
             android:maxLength="10"/>
     </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/edtmaHangHoaDon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="nhập mã hàng"
+        android:inputType="textPersonName" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -50,10 +70,11 @@
         android:layout_height="wrap_content"
         android:text="Thể Loại:" />
 
-    <Spinner
-        android:id="@+id/spinnerTheLoai"
+    <EditText
+        android:id="@+id/edtTheLoaisp_hoaDon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="nhập thể loại"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -82,13 +103,6 @@
             android:maxLength="20"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/edtTongTienHoaDon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="tổng tiền"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -132,4 +146,20 @@
             android:text="sửa"
             android:onClick="xuLySuaHoaDon"/>
     </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="8">
+
+        <ListView
+            android:id="@+id/lvFindDsXuatKho_hoaDon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

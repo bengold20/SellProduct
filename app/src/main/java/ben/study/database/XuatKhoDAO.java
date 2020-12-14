@@ -84,4 +84,37 @@ public class XuatKhoDAO {
         contentValues.put("ngayNhap",khoModel.getNgayNhap());
         return sqLiteDatabase.update("kho_xuat",contentValues,"maHangXuat=?",new String[]{khoModel.getMaHang()});
     }
+
+    public List<KhoModel> FindSanPhamXuatKho(String FindHangXuat){
+        List<KhoModel> khoModels  = new ArrayList<>();
+        String truyvan = "SELECT * FROM kho_xuat WHERE maHangXuat LIKE '%" + FindHangXuat + "%'";
+        Cursor cursor = databaseDuAn1.getWritableDatabase().rawQuery(truyvan,null);
+        if (cursor.getCount()>0){
+            cursor.moveToFirst();
+            while (cursor.isAfterLast() == false){
+                String maHangNhap = cursor.getString(cursor.getColumnIndex("maHangXuat"));
+                String tenHangNhap = cursor.getString(cursor.getColumnIndex("tenHangXuat"));
+                String theLoaiHangNhap = cursor.getString(cursor.getColumnIndex("theLoaiHangXuat"));
+                int soLuongNhap = cursor.getInt(cursor.getColumnIndex("soLuongXuat"));
+                Double giaHangXuat = cursor.getDouble(cursor.getColumnIndex("giaHangXuat"));
+                String ngayXuat = cursor.getString(cursor.getColumnIndex("ngayXuat"));
+                String ngayNhap = cursor.getString(cursor.getColumnIndex("ngayNhap"));
+
+                KhoModel khoModel = new KhoModel();
+                khoModel.setMaHang(maHangNhap);
+                khoModel.setTenHang(tenHangNhap);
+                khoModel.setTheloaihang(theLoaiHangNhap);
+                khoModel.setSoLuong(soLuongNhap);
+                khoModel.setGia(giaHangXuat);
+                khoModel.setNgayXuat(ngayXuat);
+                khoModel.setNgayNhap(ngayNhap);
+
+                khoModels.add(khoModel);
+
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+        return khoModels;
+    }
 }

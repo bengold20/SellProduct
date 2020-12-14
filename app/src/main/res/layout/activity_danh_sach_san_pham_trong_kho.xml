@@ -23,6 +23,28 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtFindSanPhamTrongKho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textPersonName"
+                android:hint="nhập mã sản phẩm"/>
+
+            <Button
+                android:id="@+id/btnFindSanPhamTrongKho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="tìm kiếm"
+                android:onClick="timKiemSanPhamTrongKho"/>
+        </LinearLayout>
+
         <ListView
             android:id="@+id/lvSanPhamTrongKho"
             android:layout_width="match_parent"

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -64,6 +65,15 @@ public class HoaDon extends AppCompatActivity {
         AdapterHoaDon adapterHoaDon = new AdapterHoaDon(listHoaDon,this);
         lvDanhSachHoaDon.setAdapter(adapterHoaDon);
         adapterHoaDon.notifyDataSetChanged();
+
+        lvDanhSachHoaDon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Object object = listHoaDon.get(i);
+                String showHoaDon = object.toString();
+                Toast.makeText(HoaDon.this,showHoaDon,Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 

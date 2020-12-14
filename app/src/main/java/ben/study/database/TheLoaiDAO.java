@@ -71,7 +71,7 @@ public class TheLoaiDAO {
         return listTheLoai;
     }
 
-    public List<TheLoaiModel> find_Data(String SearchTheLoai){
+    public List<TheLoaiModel> FindTheLoai(String SearchTheLoai){
         List<TheLoaiModel> list_theLoai = new ArrayList<>();
         String truy_van = "SELECT * FROM the_loai WHERE maTheLoai LIKE %" + SearchTheLoai + "%";
         Cursor cursor = databaseDuAn1.getWritableDatabase().rawQuery(truy_van,null);
@@ -95,25 +95,4 @@ public class TheLoaiDAO {
         }
         return list_theLoai;
     }
-
-    public List<TheLoaiModel> getmatheloai(){
-        List<TheLoaiModel> listTheLoai = new ArrayList<>();
-        String truyVan = "SELECT * FROM the_loai";
-        Cursor cursor = databaseDuAn1.getWritableDatabase().rawQuery(truyVan,null);
-        if(cursor.getCount() > 0){
-            cursor.moveToFirst();
-            while (cursor.isAfterLast() == false){
-                String maTheLoai = cursor.getString(cursor.getColumnIndex("maTheLoai"));
-
-                TheLoaiModel theLoaiModel = new TheLoaiModel();
-                theLoaiModel.setMaTheLoai(maTheLoai);
-                listTheLoai.add(theLoaiModel);
-                cursor.moveToNext();
-            }
-            cursor.close();
-        }
-        return listTheLoai;
-    }
-
-
 }

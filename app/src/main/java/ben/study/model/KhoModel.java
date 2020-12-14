@@ -1,5 +1,8 @@
 package ben.study.model;
 
+import java.util.Date;
+
+
 public class KhoModel {
     private String maHang;
     private String tenHang;
@@ -9,7 +12,8 @@ public class KhoModel {
     private String ngayXuat;
     private double gia;
 
-    public KhoModel() {
+
+            public KhoModel() {
     }
 
     public KhoModel(String maHang, String tenHang, String theloaihang, int soLuong, String ngayNhap, String ngayXuat, double gia) {

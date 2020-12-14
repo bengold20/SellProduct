@@ -10,16 +10,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ben.study.adapter.AdapterDanhSachSanPham;
+import ben.study.adapter.AdapterDanhSachSanPhamTrongKho;
 import ben.study.codeduan1.Home;
 import ben.study.codeduan1.Kho;
 import ben.study.codeduan1.R;
 import ben.study.database.DatabaseDuAn1;
+import ben.study.database.NhapKhoDAO;
 import ben.study.database.XuatKhoDAO;
 import ben.study.model.KhoModel;
 import ben.study.theLoai.TheLoaiScreen;
@@ -32,6 +37,7 @@ public class DanhSachSanPham extends AppCompatActivity {
     AdapterDanhSachSanPham adapterDanhSachSanPham;
     private DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1( this );
     private XuatKhoDAO xuatKhoDAO = new XuatKhoDAO(databaseDuAn1);
+    EditText edtFindSanPhamXuatKho;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,4 +111,24 @@ public class DanhSachSanPham extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void TimKiemSanPhamXuatKho(View view) {
+        String maHangXuatKho = edtFindSanPhamXuatKho.getText().toString().trim();
+        if(maHangXuatKho.isEmpty()){
+            edtFindSanPhamXuatKho.setError("NHẬP DỮ LIỆU TRƯỚC");
+            return;
+        }
+
+        xuatKhoDAO = new XuatKhoDAO(databaseDuAn1);
+        List<KhoModel> listHangXuatKho = xuatKhoDAO.FindSanPhamXuatKho(maHangXuatKho);
+
+        if(listHangXuatKho.size() == 0){
+            edtFindSanPhamXuatKho.setError("KHÔNG TÌM THẤY DỮ LIỆU NÀO");
+        }else {
+            AdapterDanhSachSanPham adapterNhapKho = new AdapterDanhSachSanPham((ArrayList<KhoModel>) listHangXuatKho,DanhSachSanPham.this);
+            lvDanhSachSanPham.setAdapter(adapterNhapKho);
+            adapterNhapKho.notifyDataSetChanged();
+        }
+    }
+
 }
