@@ -52,25 +52,20 @@ public class NhapKhoDAO {
                 int soLuongNhap = cursor.getInt(cursor.getColumnIndex("soLuongNhap"));
                 Double giaHangNhap = cursor.getDouble(cursor.getColumnIndex("giaHangNhap"));
                 String ngayNhap = cursor.getString(cursor.getColumnIndex("ngayNhap"));
-
                 KhoModel khoModel = new KhoModel();
-
                 khoModel.setMaHang(maHangNhap);
                 khoModel.setTenHang(tenHangNhap);
                 khoModel.setTheloaihang(theLoaiHangNhap);
                 khoModel.setSoLuong(soLuongNhap);
                 khoModel.setGia(giaHangNhap);
                 khoModel.setNgayNhap(ngayNhap);
-
                 khoModels.add(khoModel);
-
                 cursor.moveToNext();
             }
             cursor.close();
         }
         return khoModels;
     }
-
     public int suaHangNhap(KhoModel khoModel){
         SQLiteDatabase sqLiteDatabase = databaseDuAn1.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

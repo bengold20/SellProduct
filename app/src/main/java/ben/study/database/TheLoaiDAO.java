@@ -56,14 +56,11 @@ public class TheLoaiDAO {
                 String maTheLoai = cursor.getString(cursor.getColumnIndex("maTheLoai"));
                 String tenTheLoai = cursor.getString(cursor.getColumnIndex("tenTheLoai"));
                 int viTri = cursor.getInt(cursor.getColumnIndex("viTri"));
-
                 TheLoaiModel theLoaiModel = new TheLoaiModel();
                 theLoaiModel.setMaTheLoai(maTheLoai);
                 theLoaiModel.setTenTheLoai(tenTheLoai);
                 theLoaiModel.setViTri(viTri);
-
                 listTheLoai.add(theLoaiModel);
-
                 cursor.moveToNext();
             }
             cursor.close();

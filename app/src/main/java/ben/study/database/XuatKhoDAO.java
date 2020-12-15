@@ -53,7 +53,6 @@ public class XuatKhoDAO {
                 Double giaHangXuat = cursor.getDouble(cursor.getColumnIndex("giaHangXuat"));
                 String ngayXuat = cursor.getString(cursor.getColumnIndex("ngayXuat"));
                 String ngayNhap = cursor.getString(cursor.getColumnIndex("ngayNhap"));
-
                 KhoModel khoModel = new KhoModel();
                 khoModel.setMaHang(maHangNhap);
                 khoModel.setTenHang(tenHangNhap);
@@ -62,9 +61,7 @@ public class XuatKhoDAO {
                 khoModel.setGia(giaHangXuat);
                 khoModel.setNgayXuat(ngayXuat);
                 khoModel.setNgayNhap(ngayNhap);
-
                 khoModels.add(khoModel);
-
                 cursor.moveToNext();
             }
             cursor.close();
