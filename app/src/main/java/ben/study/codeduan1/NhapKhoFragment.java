@@ -30,6 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import ben.study.adapter.AdapterDanhSachSanPhamTrongKho;
 import ben.study.danh_sach_san_pham.DanhSachSanPhamTrongKho;
 import ben.study.database.DatabaseDuAn1;
 import ben.study.database.NhapKhoDAO;
@@ -186,7 +187,6 @@ public class NhapKhoFragment extends Fragment {
             khoNhap.setNgayNhap(ngayNhap);
 
             Boolean result = nhapKhoDAO.themhangnhap(khoNhap);
-
 
 
             if(result ){
