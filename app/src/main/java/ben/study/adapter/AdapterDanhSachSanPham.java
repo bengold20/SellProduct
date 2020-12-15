@@ -43,6 +43,7 @@ public class AdapterDanhSachSanPham extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = LayoutInflater.from(context).inflate(R.layout.item_listview_danhsachxuatkho,viewGroup,false);
+
         TextView txtLvTenHangXK = view.findViewById(R.id.txtLvTenHangXK);
         TextView txtLvTenTheLoaiXK = view.findViewById(R.id.txtLvTenTheLoaiXK);
         TextView txtLvSoLuongXK = view.findViewById(R.id.txtLvSoLuongXK);
@@ -53,7 +54,6 @@ public class AdapterDanhSachSanPham extends BaseAdapter {
         txtLvSoLuongXK.setText(String.valueOf(khoModels.get(i).getSoLuong()));
         txtLvGiaXK.setText(String.valueOf(khoModels.get(i).getGia()));
 
-        txtLvGiaXK.setText(String.valueOf(khoModels.get(i).getGia()));
         view.findViewById(R.id.imgXoaTheLoaiXK).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

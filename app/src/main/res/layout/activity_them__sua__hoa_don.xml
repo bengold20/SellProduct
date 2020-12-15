@@ -26,7 +26,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="4"
         android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -42,44 +42,49 @@
             android:maxLength="10"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true">
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edtmaHangHoaDon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="nhập mã hàng"
         android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
-        >
+        app:counterMaxLength="30">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtTenMatHangHoaDon"
-            android:hint="Tên Mặt Hàng"
+            android:hint="Nhập Tên Hàng"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="30"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Thể Loại:" />
-
-    <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="20">
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edtTheLoaisp_hoaDon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="nhập thể loại"/>
+        android:hint="nhập thể loại"
+        android:maxLength="20"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:counterEnabled="true"
+
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtGiaHangHoaDon"
@@ -91,10 +96,9 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:counterEnabled="true"
-        >
+        android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtSoLuongHangHoaDon"
             android:hint="Số Lượng"
@@ -153,7 +157,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_weight="8">
+        android:layout_weight="6">
 
         <ListView
             android:id="@+id/lvFindDsXuatKho_hoaDon"

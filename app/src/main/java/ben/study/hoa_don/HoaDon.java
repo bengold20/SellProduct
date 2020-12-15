@@ -10,22 +10,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ben.study.adapter.AdapterHoaDon;
+import ben.study.adapter.AdapterTheLoai;
 import ben.study.codeduan1.Home;
 import ben.study.codeduan1.R;
 import ben.study.database.DatabaseDuAn1;
 import ben.study.database.HoaDonDAO;
+import ben.study.database.TheLoaiDAO;
 import ben.study.model.HoaDonModel;
 import ben.study.model.TheLoaiModel;
 import ben.study.theLoai.TheLoaiScreen;
 import ben.study.theLoai.ThemSua_TheLoai;
 
 public class HoaDon extends AppCompatActivity {
+    EditText edtFindHoaDon;
     Toolbar toolbarHoaDon;
     private ListView lvDanhSachHoaDon;
     private ArrayList<HoaDonModel> listHoaDon ;
@@ -59,6 +64,7 @@ public class HoaDon extends AppCompatActivity {
     }
 
     private void addControls() {
+        edtFindHoaDon = findViewById(R.id.edtFindHoaDon);
         toolbarHoaDon = findViewById(R.id.toolbarHoaDon);
         lvDanhSachHoaDon = findViewById(R.id.lvDanhSachHoaDon);
         listHoaDon = (ArrayList<HoaDonModel>) hoaDonDAO.getallhoadon();
@@ -86,9 +92,6 @@ public class HoaDon extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_search_hoadon:
-                Toast.makeText(this,"tìm kiếm đi",Toast.LENGTH_LONG).show();
-                break;
             case R.id.item_ThemHoaDon:
                 Intent intent = new Intent(HoaDon.this, Them_Sua_HoaDon.class);
                 startActivity(intent);
@@ -103,5 +106,24 @@ public class HoaDon extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void timKiemHoaDon(View view) {
+        String hoaDon = edtFindHoaDon.getText().toString().trim();
+        if(hoaDon.isEmpty()){
+            edtFindHoaDon.setError("NHẬP DỮ LIỆU TRƯỚC");
+            return;
+        }
+
+        hoaDonDAO = new HoaDonDAO(databaseDuAn1);
+        List<HoaDonModel> listHoaDon = hoaDonDAO.findhoadon(hoaDon);
+
+        if(listHoaDon.size() == 0){
+            edtFindHoaDon.setError("KHÔNG TÌM THẤY DỮ LIỆU NÀO");
+        }else {
+            AdapterHoaDon adapterHoaDon = new AdapterHoaDon((ArrayList<HoaDonModel>) listHoaDon, HoaDon.this);
+            lvDanhSachHoaDon.setAdapter(adapterHoaDon);
+            adapterHoaDon.notifyDataSetChanged();
+        }
     }
 }

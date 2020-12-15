@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/item_search_theloai" android:title="timkiem" android:icon="@drawable/ic_search" app:showAsAction="always" />
+
     <item android:id="@+id/item_ThemTheLoai" android:title="Thêm Thể Loại" />
     <item android:id="@+id/item_SuaTheLoai" android:title="Sửa Thế Loại" />
     <item android:id="@+id/item_TrangChuTheLoai" android:title="Trang Chủ" />

@@ -49,6 +49,7 @@ public class AdapterDanhSachSanPhamTrongKho extends BaseAdapter {
         TextView txtLvTenTheLoaiNK = view.findViewById(R.id.txtLvTenTheLoaiNK);
         TextView txtLvSoLuongNK = view.findViewById(R.id.txtLvSoLuongNK);
         TextView txtLvGiaNK =view.findViewById(R.id.txtLvGiaNK);
+
         txtLvTenHangNK.setText(khoModels.get(i).getTenHang());
         txtLvTenTheLoaiNK.setText(khoModels.get(i).getTheloaihang());
         txtLvSoLuongNK.setText(String.valueOf(khoModels.get(i).getSoLuong()));

@@ -163,9 +163,9 @@ public class NhapKhoFragment extends Fragment {
 
 
         if(result > 0 ){
-            Toast.makeText(getActivity(),"nhập hàng thành công" + theloai + maHang,Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"nhập hàng thành công" ,Toast.LENGTH_LONG).show();
         }else {
-            Toast.makeText(getActivity(),"nhập hàng không thành công"+ theloai + maHang,Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"nhập hàng không thành công",Toast.LENGTH_LONG).show();
         }
     }
 

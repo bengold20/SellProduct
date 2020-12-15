@@ -86,6 +86,46 @@ public class HoaDonDAO {
             cursor.close();
         }
         return hoadonList;
+    }public List<HoaDonModel> findhoadon(String FindHoaDon){
+        List<HoaDonModel> hoadonList  = new ArrayList<>();
+        String truyvan = "SELECT * FROM hoa_don WHERE maHoaDon LIKE '%" + FindHoaDon + "%'";
+        Cursor cursor = databaseDuAn1.getWritableDatabase().rawQuery(truyvan,null);
+        if (cursor.getCount()>0){
+            cursor.moveToFirst();
+            while (cursor.isAfterLast() == false){
+                try {
+                String maHoaDon = cursor.getString(cursor.getColumnIndex("maHoaDon"));
+                String maHang = cursor.getString(cursor.getColumnIndex("maHang"));
+                String tenHang = cursor.getString(cursor.getColumnIndex("tenHang"));
+                String theLoaiHang = cursor.getString(cursor.getColumnIndex("theLoaiHang"));
+                int soLuong = cursor.getInt(cursor.getColumnIndex("soLuong"));
+                double giaHang = cursor.getDouble(cursor.getColumnIndex("giaHang"));
+                double tongThanhToan = cursor.getDouble(cursor.getColumnIndex("tongThanhToan"));
+                String ngayMua = cursor.getString(cursor.getColumnIndex("ngayMua"));
+
+                HoaDonModel hoaDon = new HoaDonModel();
+
+                hoaDon.setMaHoaDon(maHoaDon);
+                hoaDon.setMaHang(maHang);
+                hoaDon.setTenMatHang(tenHang);
+                hoaDon.setTheLoaiMatHang(theLoaiHang);
+                hoaDon.setSoLuongMatHang(soLuong);
+                hoaDon.setGiaBan(giaHang);
+                hoaDon.setTongThanhToan(tongThanhToan);
+
+                hoaDon.setNgayMua(sdf.parse(ngayMua));
+
+                hoadonList.add(hoaDon);
+
+                cursor.moveToNext();
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+            cursor.close();
+        }
+        return hoadonList;
     }
 
     public int suahoadon(HoaDonModel hoaDon){

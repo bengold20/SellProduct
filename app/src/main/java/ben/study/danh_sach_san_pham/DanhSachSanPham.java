@@ -66,6 +66,7 @@ public class DanhSachSanPham extends AppCompatActivity {
     }
 
     private void addControls() {
+        edtFindSanPhamXuatKho = findViewById(R.id.edtFindSanPhamXuatKho);
         toolbarDanhSachSanPham = findViewById(R.id.toolbarDanhSachSanPham);
         lvDanhSachSanPham = findViewById(R.id.lvDanhSachSanPham);
         khoModels = (ArrayList<KhoModel>) xuatKhoDAO.getallHangKhoxuat();
@@ -93,9 +94,7 @@ public class DanhSachSanPham extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_search_dsSanPham:
-                Toast.makeText(this,"tìm kiếm đi",Toast.LENGTH_LONG).show();
-                break;
+
             case R.id.item_XuatSanPham:
                 Intent intent = new Intent(DanhSachSanPham.this, Kho.class);
                 startActivity(intent);
