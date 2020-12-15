@@ -81,9 +81,6 @@ public class TheLoaiScreen extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_search_theloai:
-                Toast.makeText(this,"tìm kiếm đi",Toast.LENGTH_LONG).show();
-            break;
             case R.id.item_ThemTheLoai:
                 Intent intent = new Intent(TheLoaiScreen.this,ThemSua_TheLoai.class);
                 startActivity(intent);

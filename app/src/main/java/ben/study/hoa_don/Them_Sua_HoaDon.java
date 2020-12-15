@@ -24,6 +24,7 @@ import java.util.Date;
 import java.util.List;
 
 import ben.study.adapter.AdapterDanhSachSanPham;
+import ben.study.adapter.AdapterThemSuaHoaDon;
 import ben.study.codeduan1.Kho;
 import ben.study.codeduan1.R;
 import ben.study.database.DatabaseDuAn1;
@@ -90,7 +91,7 @@ public class Them_Sua_HoaDon extends AppCompatActivity {
         //tìm thông tin trong xuất kho
         lvFindDsXuatKho_hoaDon = findViewById(R.id.lvFindDsXuatKho_hoaDon);
         listXuatKho = xuatKhoDAO.getallHangKhoxuat();
-        AdapterDanhSachSanPham adapterspTrongKho = new AdapterDanhSachSanPham((ArrayList<KhoModel>) listXuatKho,Them_Sua_HoaDon.this);
+        AdapterThemSuaHoaDon adapterspTrongKho = new AdapterThemSuaHoaDon((ArrayList<KhoModel>) listXuatKho,Them_Sua_HoaDon.this);
         lvFindDsXuatKho_hoaDon.setAdapter(adapterspTrongKho);
         adapterspTrongKho.notifyDataSetChanged();
 
@@ -196,6 +197,11 @@ public class Them_Sua_HoaDon extends AppCompatActivity {
 
     }
 
+    public void xuLySuaHoaDon(View view) {
+
+                Toast.makeText(Them_Sua_HoaDon.this,"hãy tạo hóa đơn mới",Toast.LENGTH_LONG).show();
+        }
+
     public int validation(){
         if(edtMaHoaDon.getText().toString().isEmpty() || edtTenMatHangHoaDon.getText().toString().isEmpty() || edtGiaHangHoaDon.getText().toString().isEmpty() ||
                 edtSoLuongHangHoaDon.getText().toString().isEmpty() ||edtNgayMuaHoaDon.getText().toString().isEmpty()){
@@ -205,9 +211,7 @@ public class Them_Sua_HoaDon extends AppCompatActivity {
         }
     }
 
-    public void xuLySuaHoaDon(View view) {
-        Toast.makeText(this," đây aoid: " + listXuatKho.toString(),Toast.LENGTH_LONG).show();
-    }
+
 
     public void checkEmpty(String data, EditText edt){
         if (data.isEmpty()) {

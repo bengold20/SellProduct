@@ -90,9 +90,7 @@ public class DanhSachSanPhamTrongKho extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.item_search_dsSanPhamTrongKho:
-                Toast.makeText(this,"tìm kiếm đi",Toast.LENGTH_LONG).show();
-                break;
+
             case R.id.item_NhapSanPham:
                 Intent intent = new Intent(DanhSachSanPhamTrongKho.this, Kho.class);
                 startActivity(intent);

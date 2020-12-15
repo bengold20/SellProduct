@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/background_login2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtLvMaHangXK_hoaDon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="mã hàng" />
+
+        <TextView
+            android:id="@+id/txtLvTenHangXK_hoaDon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="tên hàng" />
+
+        <TextView
+            android:id="@+id/txtLvTenTheLoaiXK_hoaDon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="thể loại" />
+
+        <TextView
+            android:id="@+id/txtLvSoLuongXK_hoaDon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="số lượng" />
+
+        <TextView
+            android:id="@+id/txtLvGiaXK_hoaDon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="giá" />
+    </LinearLayout>
+
+</LinearLayout>

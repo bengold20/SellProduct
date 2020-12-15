@@ -91,8 +91,6 @@ public class NhapKhoDAO {
     }
 
     public List<KhoModel> FindHangKhoNhap(String FindHangNhap) {
-
-
         List<KhoModel> khoModels = new ArrayList<>();
         String truyvan = "SELECT * FROM kho_nhap WHERE maHangNhap LIKE '%" + FindHangNhap + "%'";
         Cursor cursor = databaseDuAn1.getWritableDatabase().rawQuery(truyvan, null);

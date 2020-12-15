@@ -73,7 +73,7 @@ public class TheLoaiDAO {
 
     public List<TheLoaiModel> FindTheLoai(String SearchTheLoai){
         List<TheLoaiModel> list_theLoai = new ArrayList<>();
-        String truy_van = "SELECT * FROM the_loai WHERE maTheLoai LIKE %" + SearchTheLoai + "%";
+        String truy_van = "SELECT * FROM the_loai WHERE maTheLoai LIKE '%" + SearchTheLoai + "%'";
         Cursor cursor = databaseDuAn1.getWritableDatabase().rawQuery(truy_van,null);
         if(cursor.getCount() > 0){
             cursor.moveToFirst();
