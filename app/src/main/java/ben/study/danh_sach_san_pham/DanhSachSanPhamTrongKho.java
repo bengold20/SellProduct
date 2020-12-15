@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -30,6 +32,7 @@ public class DanhSachSanPhamTrongKho extends AppCompatActivity {
     List<KhoModel> khoModels;
     private DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
     private NhapKhoDAO nhapKhoDAO = new NhapKhoDAO(databaseDuAn1);
+    EditText edtFindSanPhamTrongKho;
 
 
     @Override
@@ -65,6 +68,7 @@ public class DanhSachSanPhamTrongKho extends AppCompatActivity {
         adapterDanhSachSanPhamTrongKho = new AdapterDanhSachSanPhamTrongKho(khoModels,this);
         lvSanPhamTrongKho.setAdapter(adapterDanhSachSanPhamTrongKho);
         adapterDanhSachSanPhamTrongKho.notifyDataSetChanged();
+        edtFindSanPhamTrongKho = findViewById(R.id.edtFindSanPhamTrongKho);
 
         lvSanPhamTrongKho.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -103,5 +107,24 @@ public class DanhSachSanPhamTrongKho extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void timKiemSanPhamTrongKho(View view) {
+        String maHangNhapKho = edtFindSanPhamTrongKho.getText().toString().trim();
+        if(maHangNhapKho.isEmpty()){
+            edtFindSanPhamTrongKho.setError("NHẬP DỮ LIỆU TRƯỚC");
+            return;
+        }
+
+        nhapKhoDAO = new NhapKhoDAO(databaseDuAn1);
+        List<KhoModel> listHangTrongKho = nhapKhoDAO.FindHangKhoNhap(maHangNhapKho);
+
+        if(listHangTrongKho.size() == 0){
+            edtFindSanPhamTrongKho.setError("KHÔNG TÌM THẤY DỮ LIỆU NÀO");
+        }else {
+            AdapterDanhSachSanPhamTrongKho  adapterNhapKho = new AdapterDanhSachSanPhamTrongKho(listHangTrongKho,DanhSachSanPhamTrongKho.this);
+            lvSanPhamTrongKho.setAdapter(adapterNhapKho);
+            adapterNhapKho.notifyDataSetChanged();
+        }
     }
 }

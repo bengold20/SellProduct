@@ -37,7 +37,7 @@ public class HoaDonDAO {
         long kq =  sqLiteDatabase.delete("hoa_don","maHoaDon=?",new String[]{maHoaDon});
         if (kq > 0) return true;
         else return false;
-    }  
+    }
     public List<HoaDonModel> getallhoadon(){
         List<HoaDonModel> hoadonList  = new ArrayList<>();
         String truyvan = "SELECT * FROM hoa_don";
@@ -51,6 +51,7 @@ public class HoaDonDAO {
                 int soLuong = cursor.getInt(cursor.getColumnIndex("soLuong"));
                 double giaHang = cursor.getDouble(cursor.getColumnIndex("giaHang"));
                 double tongThanhToan = cursor.getDouble(cursor.getColumnIndex("tongThanhToan"));
+
                 HoaDonModel hoaDon = new HoaDonModel();
                 hoaDon.setMaHoaDon(maHoaDon);
                 hoaDon.setTenMatHang(tenHang);
@@ -58,6 +59,7 @@ public class HoaDonDAO {
                 hoaDon.setSoLuongMatHang(soLuong);
                 hoaDon.setGiaBan(giaHang);
                 hoaDon.setTongThanhToan(tongThanhToan);
+
                 hoadonList.add(hoaDon);
                 cursor.moveToNext();
             }

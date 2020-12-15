@@ -24,6 +24,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -138,6 +141,7 @@ public class NhapKhoFragment extends Fragment {
     }
 
     private void xuLySuaNhapKho() {
+
         String maHang = edtMaHangNhap.getText().toString();
         String tenHang = edtTenHangNhap.getText().toString();
         Integer soLuong = Integer.parseInt(edtSoLuongNhap.getText().toString());
@@ -166,31 +170,30 @@ public class NhapKhoFragment extends Fragment {
 
 
     private void xuLyThemHang() {
+            String maHang = edtMaHangNhap.getText().toString();
+            String tenHang = edtTenHangNhap.getText().toString();
+            Integer soLuong = Integer.parseInt(edtSoLuongNhap.getText().toString());
+            Double giaNhap = Double.valueOf(edtGiaHangNhap.getText().toString());
+            String ngayNhap = edtNgayNhap.getText().toString();
 
-        String maHang = edtMaHangNhap.getText().toString();
-        String tenHang = edtTenHangNhap.getText().toString();
-        Integer soLuong = Integer.parseInt(edtSoLuongNhap.getText().toString());
-        Double giaNhap = Double.valueOf(edtGiaHangNhap.getText().toString());
-        String ngayNhap = edtNgayNhap.getText().toString();
+            KhoModel khoNhap = new KhoModel();
 
-        KhoModel khoNhap = new KhoModel();
+            khoNhap.setMaHang(maHang);
+            khoNhap.setTheloaihang(theloai);
+            khoNhap.setTenHang(tenHang);
+            khoNhap.setSoLuong(soLuong);
+            khoNhap.setGia(giaNhap);
+            khoNhap.setNgayNhap(ngayNhap);
 
-        khoNhap.setMaHang(maHang);
-        khoNhap.setTheloaihang(theloai);
-        khoNhap.setTenHang(tenHang);
-        khoNhap.setSoLuong(soLuong);
-        khoNhap.setGia(giaNhap);
-        khoNhap.setNgayNhap(ngayNhap);
-
-         boolean result = nhapKhoDAO.themhangnhap(khoNhap);
-
+            Boolean result = nhapKhoDAO.themhangnhap(khoNhap);
 
 
-        if(result ){
-            Toast.makeText(getActivity(),"nhập hàng thành công",Toast.LENGTH_LONG).show();
-        }else {
-            Toast.makeText(getActivity(),"nhập hàng không thành công",Toast.LENGTH_LONG).show();
-        }
+
+            if(result ){
+                Toast.makeText(getActivity(),"nhập hàng thành công" + theloai + maHang,Toast.LENGTH_LONG).show();
+            }else {
+                Toast.makeText(getActivity(),"nhập hàng không thành công"+ theloai + maHang,Toast.LENGTH_LONG).show();
+            }
 
     }
 

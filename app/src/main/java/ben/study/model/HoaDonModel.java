@@ -1,19 +1,23 @@
 package ben.study.model;
 
+import java.util.Date;
+
 public class HoaDonModel {
     private String maHoaDon;
+    private String maHang;
     private String tenMatHang;
     private String theLoaiMatHang;
     private int soLuongMatHang;
     private double giaBan;
-    private String ngayMua;
+    private Date ngayMua;
     private double tongThanhToan;
 
     public HoaDonModel() {
     }
 
-    public HoaDonModel(String maHoaDon, String tenMatHang, String theLoaiMatHang, int soLuongMatHang, double giaBan, String ngayMua, double tongThanhToan) {
+    public HoaDonModel(String maHoaDon, String maHang, String tenMatHang, String theLoaiMatHang, int soLuongMatHang, double giaBan, Date ngayMua, double tongThanhToan) {
         this.maHoaDon = maHoaDon;
+        this.maHang = maHang;
         this.tenMatHang = tenMatHang;
         this.theLoaiMatHang = theLoaiMatHang;
         this.soLuongMatHang = soLuongMatHang;
@@ -28,6 +32,14 @@ public class HoaDonModel {
 
     public void setMaHoaDon(String maHoaDon) {
         this.maHoaDon = maHoaDon;
+    }
+
+    public String getMaHang() {
+        return maHang;
+    }
+
+    public void setMaHang(String maHang) {
+        this.maHang = maHang;
     }
 
     public String getTenMatHang() {
@@ -62,11 +74,11 @@ public class HoaDonModel {
         this.giaBan = giaBan;
     }
 
-    public String getNgayMua() {
+    public Date getNgayMua() {
         return ngayMua;
     }
 
-    public void setNgayMua(String ngayMua) {
+    public void setNgayMua(Date ngayMua) {
         this.ngayMua = ngayMua;
     }
 
@@ -82,11 +94,12 @@ public class HoaDonModel {
     public String toString() {
         return "HoaDonModel{" +
                 "maHoaDon='" + maHoaDon + '\'' +
+                ", maHang='" + maHang + '\'' +
                 ", tenMatHang='" + tenMatHang + '\'' +
                 ", theLoaiMatHang='" + theLoaiMatHang + '\'' +
                 ", soLuongMatHang=" + soLuongMatHang +
                 ", giaBan=" + giaBan +
-                ", ngayMua='" + ngayMua + '\'' +
+                ", ngayMua=" + ngayMua +
                 ", tongThanhToan=" + tongThanhToan +
                 '}';
     }

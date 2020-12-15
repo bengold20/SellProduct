@@ -231,9 +231,9 @@ public class XuatKhoFragment extends Fragment{
         khoXuat.setNgayXuat(ngayXuat);
         khoXuat.setNgayNhap(ngayNhap1);
 
-        boolean result = xuatKhoDAO.themhangxuat(khoXuat);
+        int result = xuatKhoDAO.suaHangxuat(khoXuat);
 
-        if(result){
+        if(result > 0){
             Toast.makeText(getActivity(),"sửa hàng thành công" ,Toast.LENGTH_LONG).show();
         }else {
             Toast.makeText(getActivity(),"sửa hàng không thành công",Toast.LENGTH_LONG).show();
@@ -251,8 +251,9 @@ public class XuatKhoFragment extends Fragment{
         nhapKhoDAO = new NhapKhoDAO(databaseDuAn1);
         List<KhoModel> listHangTrongKho = nhapKhoDAO.FindHangKhoNhap(maHangNhapKho);
 
-        if(listHangTrongKho.size() > 0){
+        if(listHangTrongKho.size() == 0){
             edtFinDSNhapKho.setError("KHÔNG TÌM THẤY DỮ LIỆU NÀO");
+        }else {
             adapterNhapKho = new AdapterDanhSachSanPhamTrongKho(listHangTrongKho,getActivity());
             lvFindDSNhapKho.setAdapter(adapterNhapKho);
             adapterNhapKho.notifyDataSetChanged();

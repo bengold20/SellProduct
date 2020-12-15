@@ -14,14 +14,39 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        app:contentInsetStart="2dp"
+        app:contentInsetStartWithNavigation="20dp"
         app:title="Danh Sách Sản Phẩm"
-        app:titleTextColor="#F8F5F5"/>
+        app:titleTextColor="#F8F5F5" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtFindSanPhamXuatKho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="nhập mã sản phẩm" />
+
+            <Button
+                android:id="@+id/btnFindSanPhamXuatKho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="tìm kiếm"
+                android:onClick="TimKiemSanPhamXuatKho"/>
+        </LinearLayout>
 
         <ListView
             android:id="@+id/lvDanhSachSanPham"

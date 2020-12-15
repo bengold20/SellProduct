@@ -96,7 +96,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Bảng Danh Sách Sản Phẩm Bán Chạy"
+        android:text="Danh Sách 10 Sản Phẩm Bán Chạy"
         android:textSize="22sp"
         android:textStyle="normal|bold" />
 
