@@ -163,9 +163,11 @@ public class NhapKhoFragment extends Fragment {
 
 
         if(result > 0 ){
-            Toast.makeText(getActivity(),"nhập hàng thành công" ,Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"sửa hàng thành công" ,Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getActivity(),DanhSachSanPhamTrongKho.class);
+            startActivity(intent);
         }else {
-            Toast.makeText(getActivity(),"nhập hàng không thành công",Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),"sửa hàng không thành công",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -191,6 +193,8 @@ public class NhapKhoFragment extends Fragment {
 
             if(result ){
                 Toast.makeText(getActivity(),"nhập hàng thành công" + theloai + maHang,Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getActivity(),DanhSachSanPhamTrongKho.class);
+                startActivity(intent);
             }else {
                 Toast.makeText(getActivity(),"nhập hàng không thành công"+ theloai + maHang,Toast.LENGTH_LONG).show();
             }

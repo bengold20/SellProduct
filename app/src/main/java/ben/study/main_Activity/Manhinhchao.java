@@ -15,9 +15,6 @@ public class Manhinhchao extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_manhinhchao);
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
         setContentView(R.layout.activity_manhinhchao);
         //chuyển màn
         new Handler().postDelayed(new Runnable() {
@@ -27,6 +24,6 @@ public class Manhinhchao extends AppCompatActivity {
                         Intent(getApplicationContext(), MainActivity.class));
                 finish();
             }
-        }, 2000);
+        }, 1000);
     }
 }

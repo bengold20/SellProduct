@@ -128,19 +128,19 @@ public class HoaDonDAO {
         return hoadonList;
     }
 
-    public int suahoadon(HoaDonModel hoaDon){
-        SQLiteDatabase sqLiteDatabase = databaseDuAn1.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("maHoaDon",hoaDon.getMaHoaDon());
-        contentValues.put("maHang",hoaDon.getMaHang());
-        contentValues.put("tenHang",hoaDon.getTenMatHang());
-        contentValues.put("theLoaiHang",hoaDon.getTheLoaiMatHang());
-        contentValues.put("soLuong",hoaDon.getSoLuongMatHang());
-        contentValues.put("giaHang",hoaDon.getGiaBan());
-        contentValues.put("tongThanhToan",hoaDon.getTongThanhToan());
-        contentValues.put("ngayMua",sdf.format(hoaDon.getNgayMua()));
-        return sqLiteDatabase.update("hoa_don",contentValues,"maHoaDon=?",new String[]{hoaDon.getMaHoaDon()});
-    }
+//    public int suahoadon(HoaDonModel hoaDon){
+//        SQLiteDatabase sqLiteDatabase = databaseDuAn1.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put("maHoaDon",hoaDon.getMaHoaDon());
+//        contentValues.put("maHang",hoaDon.getMaHang());
+//        contentValues.put("tenHang",hoaDon.getTenMatHang());
+//        contentValues.put("theLoaiHang",hoaDon.getTheLoaiMatHang());
+//        contentValues.put("soLuong",hoaDon.getSoLuongMatHang());
+//        contentValues.put("giaHang",hoaDon.getGiaBan());
+//        contentValues.put("tongThanhToan",hoaDon.getTongThanhToan());
+//        contentValues.put("ngayMua",sdf.format(hoaDon.getNgayMua()));
+//        return sqLiteDatabase.update("hoa_don",contentValues,"maHoaDon=?",new String[]{hoaDon.getMaHoaDon()});
+//    }
 
     public List<HoaDonModel> top10BanChay(){
         List<HoaDonModel> hoadonList  = new ArrayList<>();
