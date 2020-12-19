@@ -86,7 +86,7 @@ public class Them_Sua_HoaDon extends AppCompatActivity {
 
         btnNgayMuaHoaDon = findViewById(R.id.btnNgayMuaHoaDon);
         btnThemHoaDon = findViewById(R.id.btnThemHoaDon);
-        btnSuaHoaDon = findViewById(R.id.btnSuaHoaDon);
+//        btnSuaHoaDon = findViewById(R.id.btnSuaHoaDon);
 
         //tìm thông tin trong xuất kho
         lvFindDsXuatKho_hoaDon = findViewById(R.id.lvFindDsXuatKho_hoaDon);
@@ -190,6 +190,8 @@ public class Them_Sua_HoaDon extends AppCompatActivity {
             Toast.makeText(Them_Sua_HoaDon.this,"nhập đầy đủ thông tin",Toast.LENGTH_LONG).show();
         }else {
             Toast.makeText(Them_Sua_HoaDon.this,"nhập thành công",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(Them_Sua_HoaDon.this,HoaDon.class);
+            startActivity(intent);
         }
         } catch (ParseException e) {
             e.printStackTrace();
@@ -197,10 +199,10 @@ public class Them_Sua_HoaDon extends AppCompatActivity {
 
     }
 
-    public void xuLySuaHoaDon(View view) {
-
-                Toast.makeText(Them_Sua_HoaDon.this,"hãy tạo hóa đơn mới",Toast.LENGTH_LONG).show();
-        }
+//    public void xuLySuaHoaDon(View view) {
+//
+//                Toast.makeText(Them_Sua_HoaDon.this,"hãy tạo hóa đơn mới",Toast.LENGTH_LONG).show();
+//        }
 
     public int validation(){
         if(edtMaHoaDon.getText().toString().isEmpty() || edtTenMatHangHoaDon.getText().toString().isEmpty() || edtGiaHangHoaDon.getText().toString().isEmpty() ||

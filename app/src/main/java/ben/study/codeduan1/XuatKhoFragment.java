@@ -30,6 +30,7 @@ import java.util.List;
 
 import ben.study.adapter.AdapterDanhSachSanPhamTrongKho;
 import ben.study.danh_sach_san_pham.DanhSachSanPham;
+import ben.study.danh_sach_san_pham.DanhSachSanPhamTrongKho;
 import ben.study.database.DatabaseDuAn1;
 import ben.study.database.NhapKhoDAO;
 import ben.study.database.TheLoaiDAO;
@@ -78,7 +79,7 @@ public class XuatKhoFragment extends Fragment{
         btnXuatKho = view.findViewById(R.id.btnxuatkho);
         btnHuyXuatKho =view.findViewById(R.id.btnHuy);
         btnFindDSNhapKho = view.findViewById(R.id.btnFindDSNhapKho);
-        btnSuaHangXuatKho = view.findViewById(R.id.btnSuaHangXuatKho);
+//        btnSuaHangXuatKho = view.findViewById(R.id.btnSuaHangXuatKho);
         //edit text
         edtMaHangXuat = view.findViewById(R.id.edtMaHangXuat);
         edtTenHangXuat= view.findViewById(R.id.edtTenHangXuat);
@@ -174,6 +175,8 @@ public class XuatKhoFragment extends Fragment{
 
                 if(result){
                     Toast.makeText(getActivity(),"xuất kho thành công" ,Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getActivity(), DanhSachSanPham.class);
+                    startActivity(intent);
                 }else {
                     Toast.makeText(getActivity(),"xuất kho không thành công",Toast.LENGTH_LONG).show();
                 }
@@ -189,12 +192,12 @@ public class XuatKhoFragment extends Fragment{
             }
         });
 
-        btnSuaHangXuatKho.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                xuLySuaHangXuatKho();
-            }
-        });
+//        btnSuaHangXuatKho.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                xuLySuaHangXuatKho();
+//            }
+//        });
 
         btnHuyXuatKho.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -213,32 +216,32 @@ public class XuatKhoFragment extends Fragment{
 
     }
 
-    private void xuLySuaHangXuatKho() {
-        String maHangXuat = edtMaHangXuat.getText().toString();
-        String theLoaiHangXuat = edtTheLoaiXuatKho.getText().toString();
-        String tenHangXuat = edtTenHangXuat.getText().toString();
-        int soLuongXuat = Integer.parseInt(edtSoLuongXuat.getText().toString());
-        Double giaHangXuat = Double.valueOf(edtGiaHangXuat.getText().toString());
-        String ngayXuat = edtNgayXuat.getText().toString();
-
-        KhoModel khoXuat = new KhoModel();
-
-        khoXuat.setMaHang(maHangXuat);
-        khoXuat.setTheloaihang(theLoaiHangXuat);
-        khoXuat.setTenHang(tenHangXuat);
-        khoXuat.setSoLuong(soLuongXuat);
-        khoXuat.setGia(giaHangXuat);
-        khoXuat.setNgayXuat(ngayXuat);
-        khoXuat.setNgayNhap(ngayNhap1);
-
-        int result = xuatKhoDAO.suaHangxuat(khoXuat);
-
-        if(result > 0){
-            Toast.makeText(getActivity(),"sửa hàng thành công" ,Toast.LENGTH_LONG).show();
-        }else {
-            Toast.makeText(getActivity(),"sửa hàng không thành công",Toast.LENGTH_LONG).show();
-        }
-    }
+//    private void xuLySuaHangXuatKho() {
+//        String maHangXuat = edtMaHangXuat.getText().toString();
+//        String theLoaiHangXuat = edtTheLoaiXuatKho.getText().toString();
+//        String tenHangXuat = edtTenHangXuat.getText().toString();
+//        int soLuongXuat = Integer.parseInt(edtSoLuongXuat.getText().toString());
+//        Double giaHangXuat = Double.valueOf(edtGiaHangXuat.getText().toString());
+//        String ngayXuat = edtNgayXuat.getText().toString();
+//
+//        KhoModel khoXuat = new KhoModel();
+//
+//        khoXuat.setMaHang(maHangXuat);
+//        khoXuat.setTheloaihang(theLoaiHangXuat);
+//        khoXuat.setTenHang(tenHangXuat);
+//        khoXuat.setSoLuong(soLuongXuat);
+//        khoXuat.setGia(giaHangXuat);
+//        khoXuat.setNgayXuat(ngayXuat);
+//        khoXuat.setNgayNhap(ngayNhap1);
+//
+//        int result = xuatKhoDAO.suaHangxuat(khoXuat);
+//
+//        if(result > 0){
+//            Toast.makeText(getActivity(),"sửa hàng thành công" ,Toast.LENGTH_LONG).show();
+//        }else {
+//            Toast.makeText(getActivity(),"sửa hàng không thành công",Toast.LENGTH_LONG).show();
+//        }
+//    }
 
 
     public void timKiemHangTrongKho(){

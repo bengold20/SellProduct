@@ -138,17 +138,11 @@
 
         <Button
             android:id="@+id/btnThemHoaDon"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Thêm"
             android:onClick="xuLyThemHoaDon"/>
 
-        <Button
-            android:id="@+id/btnSuaHoaDon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sửa"
-            android:onClick="xuLySuaHoaDon"/>
     </LinearLayout>
 
     </LinearLayout>

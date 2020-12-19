@@ -18,11 +18,17 @@ import ben.study.model.TheLoaiModel;
 public class ThemSua_TheLoai extends AppCompatActivity {
     EditText edtMaTheLoai ,edtTenTheLoai,edtViTri;
     Button btnThemTheLoai,btnSuaTheLoai;
+    DatabaseDuAn1 databaseDuAn1;
+    TheLoaiDAO theLoaiDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_them_sua__the_loai);
+
+        databaseDuAn1 = new DatabaseDuAn1(this);
+        theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
+
         addControls();
         addEvents();
     }
@@ -53,16 +59,16 @@ public class ThemSua_TheLoai extends AppCompatActivity {
     }
 
     private void xulysuatheloai() {
-        DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
-        TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
         TheLoaiModel theLoaiModel = new TheLoaiModel();
+        String maTheLoai =  edtMaTheLoai.getText().toString();
         String tenTheLoai =edtTenTheLoai.getText().toString();
         int viTri = Integer.parseInt(edtViTri.getText().toString());
         theLoaiModel.setTenTheLoai(tenTheLoai);
+        theLoaiModel.setMaTheLoai(maTheLoai);
         theLoaiModel.setViTri(viTri);
 
-        long kq = theLoaiDAO.suaTheloai(theLoaiModel);
-        if (kq == 1 ){
+        int kq = theLoaiDAO.suaTheloai(theLoaiModel);
+        if (kq > 0 ){
             Toast.makeText(this,"Sửa thể loại thành công" ,Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this,TheLoaiScreen.class);
             startActivity(intent);
@@ -79,8 +85,7 @@ public class ThemSua_TheLoai extends AppCompatActivity {
         theLoaiModel.setMaTheLoai(maTheLoai);
         theLoaiModel.setTenTheLoai(tenTheLoai);
         theLoaiModel.setViTri(viTri);
-        DatabaseDuAn1 databaseDuAn1 = new DatabaseDuAn1(this);
-        TheLoaiDAO theLoaiDAO = new TheLoaiDAO(databaseDuAn1);
+
 
         boolean kq = theLoaiDAO.themTheloai(theLoaiModel);
         if (kq ){
@@ -91,14 +96,6 @@ public class ThemSua_TheLoai extends AppCompatActivity {
             Toast.makeText(this,"thêm thể loại thất bại" ,Toast.LENGTH_LONG).show();
         }
 
-    }
-
-
-    public void checkEmpty(String data , EditText edt) {
-        if (data.isEmpty()) {
-            edt.setError(" Vui lòng nhập đủ thông tin ... ");
-            return;
-        }
     }
 
 }
