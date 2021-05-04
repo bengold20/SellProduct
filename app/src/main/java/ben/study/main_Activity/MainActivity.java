@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Home.class);
                 startActivity(intent);
             }else {
-                Toast.makeText(MainActivity.this,"Đăng nhập hệ thống thất bại " , Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"Đăng nhập hệ thống thất bại (tài khoản và mật khẩu là: admin)" , Toast.LENGTH_LONG).show();
             }
 
         }

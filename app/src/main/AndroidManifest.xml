@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icons"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icons"
         android:supportsRtl="true"
         android:theme="@style/Theme.CodeDuAn1">
         <activity android:name="ben.study.danh_sach_san_pham.DanhSachSanPhamTrongKho"></activity>
