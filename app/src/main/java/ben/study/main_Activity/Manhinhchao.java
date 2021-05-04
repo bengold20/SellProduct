@@ -24,6 +24,6 @@ public class Manhinhchao extends AppCompatActivity {
                         Intent(getApplicationContext(), MainActivity.class));
                 finish();
             }
-        }, 1000);
+        }, 3000);
     }
 }

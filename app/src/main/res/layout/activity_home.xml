@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Home"
-    android:background="@drawable/background_home">
+    android:background="@drawable/colorful5">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarHome"
@@ -19,6 +19,7 @@
         app:titleTextColor="#F8F5F5"/>
 
     <LinearLayout
+        android:padding="20dp"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,21 +31,26 @@
             android:orientation="vertical"
             android:layout_weight="1"
             android:gravity="center">
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/danhsachsanpham"
-                android:onClick="DanhSachSanPham"/>
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/danhsachsanpham"
+                    android:onClick="DanhSachSanPham"/>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Danh Sach Sản Phẩm"
+                android:text="Danh Sách Sản Phẩm"
                 android:gravity="center"
-                android:textSize="24sp"
+                android:textSize="20sp"
+                android:textColor="#0E0D0D"
                 android:textStyle="bold"/>
         </LinearLayout>
 
@@ -56,12 +62,18 @@
             android:gravity="center"
             android:layout_weight="1">
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/kho1"
-                android:onClick="kho"/>
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/kho1"
+                    android:onClick="kho"/>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/textView2"
@@ -70,13 +82,15 @@
                 android:gravity="center"
                 android:text="Kho"
                 android:textColor="#0E0D0D"
-                android:textSize="24sp" />
+                android:textSize="20sp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
 
     </LinearLayout>
 
     <LinearLayout
+        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -89,20 +103,27 @@
             android:layout_weight="1"
             android:gravity="center">
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/theloai"
-                android:onClick="the_loai"/>
 
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/theloai"
+                    android:onClick="the_loai"/>
+            </androidx.cardview.widget.CardView>
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="#0E0D0D"
                 android:text="Thể loại hàng"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -114,25 +135,33 @@
             android:layout_weight="1"
             android:gravity="center">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/hoadon2"
-                android:onClick="HoaDon"/>
 
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/hoadon2"
+                    android:onClick="HoaDon"/>
+            </androidx.cardview.widget.CardView>
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Hóa Đơn"
-                android:textSize="24sp"
+                android:textColor="#0E0D0D"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
+        android:paddingTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -152,20 +181,25 @@
             android:layout_weight="1"
             android:gravity="center">
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/thongke"
-                android:onClick="ThongKe"/>
-
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/thongke"
+                    android:onClick="ThongKe"/>
+            </androidx.cardview.widget.CardView>
             <TextView
                 android:id="@+id/textView5"
+                android:textColor="#0E0D0D"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Thống kê"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

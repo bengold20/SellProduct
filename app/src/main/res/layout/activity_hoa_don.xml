@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/ben_orange"
     android:layout_height="match_parent"
     tools:context="ben.study.hoa_don.HoaDon"
     android:orientation="vertical">
@@ -19,6 +20,7 @@
 
 
     <LinearLayout
+        android:padding="2dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -26,7 +28,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:background="@color/ben_orange"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <EditText
                 android:id="@+id/edtFindHoaDon"
@@ -38,6 +42,10 @@
                 android:inputType="textPersonName" />
 
             <Button
+                android:textColor="@color/black"
+                app:backgroundTint="@null"
+                android:background="@drawable/bg_yellow_conner_30"
+                android:backgroundTint="@null"
                 android:id="@+id/btnFindHoaDon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,10 +54,17 @@
                 android:text="tìm kiếm" />
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/lvDanhSachHoaDon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+<LinearLayout
+    android:background="@drawable/colorful4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ListView
+        android:id="@+id/lvDanhSachHoaDon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

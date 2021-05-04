@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     btnLogin.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+
             String user = edtUser.getText().toString();
             String pass =  edtPass.getText().toString();
             if (user.equals("admin") && pass.equals("admin")){

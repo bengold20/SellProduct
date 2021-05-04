@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ben.study.danh_sach_san_pham.DanhSachSanPham"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="ben.study.danh_sach_san_pham.DanhSachSanPham">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarDanhSachSanPham"
@@ -23,35 +23,43 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/ben_orange"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <EditText
+            android:id="@+id/edtFindSanPhamXuatKho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="nhập mã sản phẩm"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btnFindSanPhamXuatKho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_yellow_conner_30"
+            android:backgroundTint="@null"
+            android:onClick="TimKiemSanPhamXuatKho"
+            android:text="tìm kiếm"
+            android:textColor="@color/black"
+            app:backgroundTint="@null" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/edtFindSanPhamXuatKho"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="nhập mã sản phẩm" />
-
-            <Button
-                android:id="@+id/btnFindSanPhamXuatKho"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="tìm kiếm"
-                android:onClick="TimKiemSanPhamXuatKho"/>
-        </LinearLayout>
-
         <ListView
             android:id="@+id/lvDanhSachSanPham"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@drawable/colorful3"
+            android:padding="5dp" />
     </LinearLayout>
+
 
 </LinearLayout>

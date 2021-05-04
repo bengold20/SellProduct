@@ -2,12 +2,14 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="10dp"
+    android:background="@drawable/colorful6"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".NhapKhoFragment">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -19,7 +21,7 @@
                 android:id="@+id/edtMaHangNhap"
                 android:hint="Mã Mặt Hàng"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:maxLength="10"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -34,13 +36,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:counterEnabled="true"
-            app:counterMaxLength="30">>
+            app:counterEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtTenHangNhap"
                 android:hint="Tên Hàng"
@@ -76,7 +75,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:orientation="horizontal">
 
             <EditText
@@ -88,6 +87,11 @@
                 android:inputType="textPersonName" />
 
             <Button
+                android:layout_marginLeft="5dp"
+                android:backgroundTint="@null"
+                app:backgroundTint="@null"
+                android:textColor="@color/black"
+                android:background="@drawable/bg_purple_conner_10"
                 android:id="@+id/btnNgayNhap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,29 +102,34 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="right"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_margin="10dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnNhapKho"
                 android:layout_width="wrap_content"
+                android:layout_marginRight="5dp"
                 android:layout_height="wrap_content"
-                android:text="Nhập Kho"
-                 />
+                android:background="@drawable/bg_purple_conner_10"
+                android:text="Nhập Kho" />
 
             <Button
+                android:background="@drawable/bg_purple_conner_10"
                 android:id="@+id/btnSuaHangNhapKho"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sửa" />
 
             <Button
+                android:background="@drawable/bg_purple_conner_10"
                 android:id="@+id/btnHuy"
+                android:layout_marginLeft="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hủy"
-               />
+                />
         </LinearLayout>
 
     </LinearLayout>

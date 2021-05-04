@@ -3,22 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="2dp"
+        android:gravity="left"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imgHoaDon"
-            android:layout_marginTop="10dp"
-            android:layout_width="100dp"
-            android:layout_height="69dp"
-            app:srcCompat="@drawable/background_login2" />
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgHoaDon"
+                android:layout_marginTop="10dp"
+                android:layout_width="80dp"
+                android:layout_height="69dp"
+                app:srcCompat="@drawable/background_login2" />
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -51,8 +61,9 @@
 
         <ImageView
             android:id="@+id/imgXoaTheLoaiXK"
-            android:layout_width="50dp"
+            android:layout_width="30dp"
             android:layout_height="80dp"
+            android:gravity="right"
             android:src="@drawable/delete"  />
     </LinearLayout>
 </LinearLayout>

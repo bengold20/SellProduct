@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/colorful6"
     android:layout_height="match_parent"
     tools:context="ben.study.theLoai.ThemSua_TheLoai"
     android:orientation="vertical">
@@ -16,6 +17,14 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:title="Thêm Sửa Thể Loại"/>
+
+    <LinearLayout
+        android:padding="15dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
 
     <TextView
         android:id="@+id/textView12"
@@ -75,23 +84,27 @@
 </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
+            android:background="@drawable/bg_purple_conner_10"
             android:id="@+id/btnThemTheLoai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="thêm" />
+            android:text="thêm"
+            android:layout_marginRight="5dp"/>
 
         <Button
+            android:background="@drawable/bg_purple_conner_10"
             android:id="@+id/btnSuaTheLoai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="sửa " />
+            android:text="sửa "
+            android:layout_marginLeft="5dp"/>
 
+    </LinearLayout>
     </LinearLayout>
 </LinearLayout>

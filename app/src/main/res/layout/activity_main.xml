@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="ben.study.main_Activity.MainActivity"
     android:orientation="vertical"
-    android:background="@drawable/background_login">
+    android:background="@drawable/colorful1">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarLogin"
@@ -18,49 +18,55 @@
         app:title="Login"
         app:titleTextColor="#F8F8F8" />
 
-
-    <TextView
-        android:id="@+id/textView6"
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Hệ thống quản lý cửa hàng"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
+        <TextView
+            android:paddingTop="80dp"
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Hệ thống quản lý cửa hàng"
+            android:textSize="30sp"
+            android:textColor="@color/ben_yellow"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="match_parent"
-        android:layout_height="200dp" />
 
-    <EditText
-        android:id="@+id/edtUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="UserName"
-        android:inputType="textPersonName" />
+        <EditText
+            android:paddingTop="30dp"
+            android:id="@+id/edtUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="UserName"
+            android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/edtPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="PassWord"
-        android:inputType="textPassword" />
+        <EditText
+            android:id="@+id/edtPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="PassWord"
+            android:inputType="textPassword" />
 
-    <CheckBox
-        android:id="@+id/Chekbox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Lưu thông tin đăng nhập cho lần tới" />
+        <CheckBox
+            android:id="@+id/Chekbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Lưu thông tin đăng nhập cho lần tới" />
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Đăng Nhập"
-        app:backgroundTint="#89BFE8" />
+        <Button
+            android:paddingTop="10dp"
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Đăng Nhập"
+            android:background="@drawable/bg_yellow_conner_30" />
+    </LinearLayout>
 
 </LinearLayout>

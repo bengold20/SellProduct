@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="5dp"
+    android:background="@drawable/colorful6"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     tools:context=".XuatKhoFragment">
@@ -13,45 +15,26 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/edtMaHangXuat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:counterEnabled="true"
-            app:counterMaxLength="10">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtMaHangXuat"
-                android:hint="Mã Mặt Hàng"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLength="10"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="Mã mặt hàng "
+            android:inputType="textPersonName" />
 
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/edtTheLoaiXuatKho"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:counterEnabled="true">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtTheLoaiXuatKho"
-                android:hint="Thể loại hàng "
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLength="30"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="Thể Loại"/>
 
-
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/edtTenHangXuat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:counterEnabled="true">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtTenHangXuat"
-                android:hint="Tên Mặt hàng "
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLength="30"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:ems="10"
+            android:hint="Tên hàng"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/edtGiaHangXuat"
@@ -70,7 +53,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:orientation="horizontal">
 
             <EditText
@@ -82,35 +65,54 @@
                 android:inputType="textPersonName" />
 
             <Button
+                android:backgroundTint="@null"
+                app:backgroundTint="@null"
+                android:textColor="@color/black"
+                android:background="@drawable/bg_purple_conner_10"
                 android:id="@+id/btnngayxuat"
+                android:textSize="16sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:text="Chọn ngày" />
 
         </LinearLayout>
 
         <LinearLayout
+            android:padding="2dp"
+            android:layout_margin="2dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <Button
+                android:background="@drawable/bg_purple_conner_10"
                 android:id="@+id/btnxuatkho"
+                android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Xuất kho" />
 
             <Button
+                android:background="@drawable/bg_purple_conner_10"
                 android:id="@+id/btnHuy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hủy" />
 
+            <Button
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/bg_purple_conner_10"
+                android:id="@+id/btnSuaHangXuatKho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sửa" />
         </LinearLayout>
         <LinearLayout
+            android:background="@color/ben_orange"
+            android:padding="2dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:orientation="horizontal">
 
             <EditText
@@ -120,9 +122,14 @@
                 android:layout_weight="8" />
 
             <Button
+                android:backgroundTint="@null"
+                app:backgroundTint="@null"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:background="@drawable/bg_yellow_conner_30"
                 android:id="@+id/btnFindDSNhapKho"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_weight="1"
                 android:text="tìm kiếm" />
         </LinearLayout>

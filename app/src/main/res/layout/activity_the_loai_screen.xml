@@ -20,6 +20,8 @@
 
 
     <LinearLayout
+        android:background="@drawable/colorful6"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -43,13 +45,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@null"
+                app:backgroundTint="@null"
+                android:textColor="@color/black"
+                android:background="@drawable/bg_green_conner_10"
                 android:text="tìm kiếm"
                 android:onClick="timKiemTheLoai"/>
         </LinearLayout>
-
-        <ListView
-            android:id="@+id/lvDanhSachTheLoai"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content">
+            <ListView
+                android:id="@+id/lvDanhSachTheLoai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -20,7 +20,9 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayout"
+        android:background="@drawable/colorful4"
         android:layout_width="match_parent"
+        app:tabTextColor="@color/black"
         android:layout_height="match_parent">
     </com.google.android.material.tabs.TabLayout>
 
